@@ -1,0 +1,48 @@
+1:
+
+x = 2; y = 3;
+if (x > y):
+    result = x;
+else:
+    result = y;
+
+Powyższy kod uruchamia się, ale da się go lepiej zapisać. Można w powyższym zapisie pozbyć się średników na końcu lini, wówczas poprawiony kod wyglądałbym następująco:
+
+x = 2; y = 3
+if x > y:
+    result = x
+else:
+    result = y
+
+------------------------------------------------------------
+
+2:
+
+for i in "axby": if ord(i) < 100: print (i)
+
+Tutaj jest problem ze składnią. Instrukcje for i if muszą być w osobnych liniach, a blok kodu wewnątrz pętli musi być odpowiednio wcięty. Poprawniony kod wyglądałby tak:
+
+for i in "axby":
+    if ord(i) < 100:
+        print(i)
+
+------------------------------------------------------------
+
+3:
+
+for i in "axby": print (ord(i) if ord(i) < 100 else i)
+
+Ten fragment kodu jest poprawny składniowo. W jednej linii stosuje się pętlę oraz wyrażenie warunkowe wbudowane w print. Nie ma tu błędów, ale dla lepszej czytelności można umieścić pętlę i funkcję print w osobnych liniach:
+
+for i in "axby":
+    print(ord(i) if ord(i) < 100 else i)
+
+Podsumowanie:
+1: Fragment jest poprawny, ale nie wymaga średników.
+2: Błąd składniowy związany z blokiem if w pętli for.
+3: Fragment jest poprawny, ale można poprawić czytelność.
+
+
+
+
+

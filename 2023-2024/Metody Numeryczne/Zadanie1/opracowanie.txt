@@ -1,0 +1,9 @@
+// Autor: Daniel Szarek
+//=====================
+Maksymalne N dla którego błąd obliczeń jest mniejszy niż 10^(-10), to 22, wartość tego błędu wynosi 2.17604e-14. Wartość tą ustaliłem na podstawie operacji zdefiniowanych w pliku testy.cpp, w komentarzach opisałem co się dzieje w tym programie i jakie procesy odpowiadają za ustalenie finalnego wyniku. Program można uruchomić osobiście albo za pomocą makefile wpisując w terminalu make run2.
+
+Wzór podany w poleceniu przeredagowałem na taki który, daje taki sam wynik podany poniżej w podpunkcie a), udowadniam to wypisując wartości funkcji dla 10 cyfr znaczących dla wzoru z polecenia oraz mojego zoptymalizowanego. Dowód podobnie jak powyżej jest w pliku testy.cpp, również opisuje tam w komentarzach co się dzieje dla przejrzystości i jasności programu. Wzór ustaliłem na podstawie przekształceń funkcji sin^2 korzystając z własności jedynki trygonometrycznej, później wartości powielające się wyciągnąłem przed nawias.
+
+a) f(1) = 1.400781361 (Program main.cpp, można uruchomić osobiście albo przez make run1)
+
+b) 1749,5

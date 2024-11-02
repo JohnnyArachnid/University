@@ -1,0 +1,19 @@
+
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+c
+3src/test/java/org/starmap/utils/DataLoaderTest.java,9\6\96942686f112212e17268220511cee41825c5115
+Y
+)src/main/java/org/starmap/model/Star.java,d\3\d39bfc107b6d1b8dd6d78d41fd30f0f00f5701be
+b
+2src/main/java/org/starmap/model/Constellation.java,d\3\d3ecf1291d1d1fb8ef5cd5c1a5ff5fbe789d0f12
+_
+/src/main/java/org/starmap/utils/DataLoader.java,a\0\a08b39cd651f598be36dedd47f117392876c25fb
+k
+;src/main/java/org/starmap/controller/StarMapController.java,8\1\81a04bdc608b01c23cfcedcb0fe1a4158a8da63e
+_
+/src/main/java/org/starmap/view/StarMapView.java,1\a\1a1f2a6300b1439d792e86c1be699138dc707c58
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+V
+&src/main/java/org/starmap/MainApp.java,7\6\76dc10e92ba0a5f0274bf5e11cf78e5f68dcf651

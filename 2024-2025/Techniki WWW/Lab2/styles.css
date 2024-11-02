@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: pink;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid rgb(0, 0, 0);
+    text-align: center;
+    color: rgb(250, 4, 172);
+}
+
+.odnosnik:hover {
+    color: yellow;
+}
+
+.content {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cat {
+    flex: 1 1 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid black;
+    max-width: 30%;
+    height: 300px;
+    text-align: center;
+}
+
+.cat:hover {
+    background-color: yellow;
+    color: rgb(250, 4, 172);
+}
+
+.headlineBigger {
+    font-size: 1.5rem;
+    text-decoration: solid;
+}
+
+h2 + .paragraf1 {
+    font-size: 1.25rem;
+    padding-bottom: 5px;
+    font-style: italic;
+    text-align: right;
+}
+
+.zdjecie {
+    width: 200px;
+    height: 200px;
+    border: 5px solid rgb(250, 4, 172);
+    border-radius: 25%;
+    float: left;
+}
+
+.description {
+    text-decoration: overline;
+    font-weight: 300;
+    clear: both;
+    padding-top: 10px;
+}
+
+.footer {
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid rgb(0, 0, 0);
+    text-align: center;
+    color: rgb(250, 4, 172);
+}
+
+.footerText {
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+

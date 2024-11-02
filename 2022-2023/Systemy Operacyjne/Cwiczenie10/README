@@ -1,0 +1,41 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 28.05.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie10 zawiera zrealizowane programy do Cwiczenie 10
+--------------------------------------------------------------------
+
+I.   Program realizujacy zadanie algorytmu piekarni dla p-watkow. Do demonstacji dzialania uzylem zmodyfikowanego kodu autorstwa wykladowcy Pana Wieslawa Placzka podanego w pliku hello.c w katalogu StartSO, watek w sekcji krytycznej wypisuje sie pogrubionym tekstem po prawej stronie terminala i wypisuje w czasie rzeczywistym wartosc modyfikowanej zmiennej globalnej oraz swoj numer, pozostale watki oczekuja na wejscie do sekcji krytycznej, program rowniez je wypisuje w terminalu, ale po lewej stronie bez pogrubionej czcionki, rowniez z ich numerem. Do zademostrowania operacji na zasobie dzielonym uzylem zmiennej globalnej licznikowej tak jak w cwiczeniu 9.
+
+     1) glowny.c - Program glowny, wykonujacy zagadnienia podane w poleceniu
+     2) biblioteka.h - Biblioteka z prototypami funkcji wlasnych na potrzebe realizacji zadania
+     3) biblioteka.c - Program w ktorym zdefiniowane sa funkcje ktorych prototypy funkcji utworzone sa w bibliotece biblioteka.h
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

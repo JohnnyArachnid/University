@@ -1,0 +1,50 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 23.03.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie2 zawiera zrealizowane programy do Cwiczenie 2
+--------------------------------------------------------------------
+
+I.   Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla wszystkich procesow analogicznie tak jak to robilismy w Cwiczeniu 1 b, proces macierzysty oczekuje na procesy potomne az zakoncza swoje dzialanie.
+     Procesy potomne powstale dzieki trzykrotnemu wywolaniu funkcji fork() beda uruchamiac zewnetrzny program i wypisywac swoje identyfikatory dzieki funkcji wypisanie_informacji() zadeklarowanej w pliku naglowkowym wypisywanie.h.
+     Procesy potomne beda uruchamiac program zewnetrzny dzieki wykorzystaniu funkcji execlp z argumentami sciezki do pliku wykonywalnego naszego zewnetrzengo programu zadeklarowanego w tablicy sciezka[100] oraz nazwie pliku w zmiennej argv[1], automatycznie przypisanej przez funkcje main() oryginalnego programu, przy procesie deklaracji ./cw2.o wywolanie.o.
+     
+     1) cw_2.c - Program Glowny
+     2) wywolanie.c - Program Drugi, sluzacy do wywolania funkcji wypisanie_informacji(), dla procesow potomnych.
+     3) wypisywanie.h - Plik Naglowkowy z funkcja wypisanie_informacji()
+------------------------------------------------------------------------
+
+* Odpowiedz do zadanych pytan:
+==============================
+
+Przy n-krotnym wywolaniu funkcji fork-exec, powstanie n procesow, poniewaz w przeciwienstwie do powstania 2^n procesow z Cwiczenia1 tym razem nasze procesy potomne nie zostaja w ramach tego samego programu wraz z procesem macierzystym. Tym razem procesy nie beda tworzyc kolejnych procesow potomnych, tylko beda od razu dzieki wykorzystaniu funkcji execlp przechodzic do wykonania programu zewnetrznego i stad beda pomijac ponowne wywolanie funkcji fork(). Nie dojdzie do sytuacji w ktorej proces potomny bedzie tworzyl kolejne procesy potomne, bo na przykladzie naszego programu utworzony proces potomny bedzie przechodzil do programu wywolanie.c i nie bedzie klonowal dalej w cw2.c.
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+
+

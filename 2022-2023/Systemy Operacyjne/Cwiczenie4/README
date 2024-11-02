@@ -1,0 +1,42 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 12.04.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie4 zawiera zrealizowane programy do Cwiczenie 4
+--------------------------------------------------------------------
+
+I.   Program realizujacy problem "Producenta i Konsumenta", zadanie zrealizowalem w pliku cw4.c, u mnie Producentem jest proces potomny utworzony przez funkcje fork(), natomiat proces macierzysty jest Konsumentem.
+     Producent pobiera surowiec z pliku tekstowego i wstawia go jako towar do potoku, a Konsument umieszcza pobrany towar z potoku w innym pliku tekstowym, W swoim programie dane ustalilem jako zmienne typu char, sa to kolejno piec kolejnych duzych liter alfabetu Polskiego. Plik z danymi, u mnie towart1.txt posiada rozmiar 5 linijek danych, istnieje mozliwosc dodania wiekszej ilosci danych, jednak aby program dzialal nalezy manualnie zmienic jego rozmiar w zmiennej rozmiar w pliku glownym z 5 na inna wlasna zadeklarowana. Oba procesy drukuja na ekranie w czasie rzeczywistym towary ktore pobieraja badz wysylaja, do zasymulowanie roznej dlugosci dzialania programu uzylem funkcji sleep z argumentem liczby losowej w zakresie 1-6 sekund.
+
+     1) cw4.c - Program Glowny
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

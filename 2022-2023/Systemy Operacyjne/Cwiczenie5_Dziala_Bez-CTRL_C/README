@@ -1,0 +1,52 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 26.04.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie4 zawiera zrealizowane programy do Cwiczenie 5
+--------------------------------------------------------------------
+
+I.   Program realizujacy problem "Producenta i Konsumenta", dla potokow nazwanych utworzonych w programie, zadanie zrealizowalem w pliku cw5_a.c, u mnie Producentem jest proces potomny utworzony przez funkcje fork() 
+     natomiat proces macierzysty jest Konsumentem. Producent pobiera surowiec z pliku tekstowego i wstawia go jako towar do potoku nazwanego o nazwie myfilo, a Konsument umieszcza pobrany towar z potoku w innym pliku tekstowym. Oba procesy drukuja na ekranie w czasie rzeczywistym towary ktore pobieraja badz wysylaja, do zasymulowanie roznej dlugosci dzialania programu uzylem funkcji sleep z argumentem liczby losowej w zakresie 1-6 sekund. Na koniec potok jest usuwany przez funkcje unlink zarejestrowanej przez atexit.
+
+     1) cw5_a.c - Program Glowny
+
+I.   Program realizujacy problem "Producenta i Konsumenta", dla potokow nazwanych utworzonych z linii komend dla procesow niezaleznych w programach Producenta (cw5_bProducent.c) oraz Konsumenta (cw5_bKonsument.c). W
+     celu wykonania programu trzeba uruchomic dwa podane wyzej programy w osobnych terminalach. Producent pobiera surowiec z pliku tekstowego i wstawia go jako towar do potoku nazwanego o nazwie myfilo, a Konsument umieszcza pobrany towar z potoku w innym pliku tekstowym. Oba procesy drukuja na ekranie w czasie rzeczywistym towary ktore pobieraja badz wysylaja, do zasymulowanie roznej dlugosci dzialania programu uzylem funkcji sleep z argumentem liczby losowej w zakresie 1-6 sekund. Potok nazwany myfilo jest usuwany po zakonczeniu wykonywania programow.
+
+     1) cw5_bProducent.c - Program Producenta
+     2) cw5_bKonsument.c - Program Konsumenta
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic 2-szy program, nalezy wykonac komende:
+       make run21 - W terminalu nr.1
+       make run22 - W terminaly nr.2
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

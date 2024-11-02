@@ -1,0 +1,42 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 24.05.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie8 zawiera zrealizowane programy do Cwiczenie 8
+--------------------------------------------------------------------
+
+I.   Program realizujacy zadanie klient-serwer z wykorzystaniem kolejki komunikatow. Program klienta pobiera z wiersza polecen liczby oraz znak operacji, po czym wysyla ona komunikat z danymi do kolejki komunikatow serwera. Program serwera odbiera informacje, wyluskuje liczby oraz znak z komunikatu, po czym w zaleznosci od znaku wykonuje dana operacje arytmetyczna. Program uwzglednia przypadek dzielenia przez 0, w takim przypadku program klienta zwraca blad. Po wykonaniu operacji arytmetycznej, program serwera wysyla do kolejki klienta odpowiedz, gdzie proces klienta wypisuje odpowiedz na ekranie monitora. Programy obsluguja wielu klientow naraz, zawieraja one oblusge funkcji atexit.
+
+     1) klient.c - Program klienta wysylajacy komunikat z danymi, odbierajacy przetworzona wiadomosc od serwera i wypisujacyy go na ekranie
+     2) serwer.c - Program serwera odbierajacy komunikaty klientow, wykonujacy na nich operacje i wysylajacy do nich przetworzona odpowiedz
+     3) obsluga_kolejki_komunikatow.h - Biblioteka z prototypami funkcji wlasnych na potrzebe realizacji zadania
+     4) obsluga_kolejki_komunikatow.c - Program w ktorym zdefiniowane sa funkcje ktorych prototypy funkcji utworzone sa w bibliotece obsluga_kolejki_komunikatow.h
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

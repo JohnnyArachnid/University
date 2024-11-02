@@ -1,0 +1,35 @@
+{
+  "stars": [
+  {
+    "name": "Sirius",
+    "xPosition": 100.0,
+    "yPosition": 200.0,
+    "brightness": 1.46
+  },
+  {
+    "name": "Canopus",
+    "xPosition": 150.0,
+    "yPosition": 250.0,
+    "brightness": 0.72
+  },
+  {
+    "name": "Aldebaran",
+    "xPosition": 50.0,
+    "yPosition": 400.0,
+    "brightness": 0.85
+  },
+  {
+    "name": "Elnath",
+    "xPosition": 100.0,
+    "yPosition": 450.0,
+    "brightness": 1.65
+  }
+],
+  "constellations": [
+{ "name": "Taurus", 
+"stars": [
+ "Aldebaran",
+ "Elnath"]
+}
+]
+}

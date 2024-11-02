@@ -1,0 +1,46 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 03.05.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie6 zawiera zrealizowane programy do Cwiczenie 6
+--------------------------------------------------------------------
+
+I.   Program realizujacy problem wzajemnego wykluczania dla procesow poprzez semafory. Do zrealizowania zadania uzylem nakazanych w poleceniu semaforow nazwanych. Program powielacza na poczatku tworzy i inicjuje semafor po czym realizuje powielanie procesow w oparciu o funkcje fork i execlp, na koniec kiedy wszystkie procesy potomne zakoncza swoje dzialanie program usuwa semafor. Procesy potomne otwieraja i pracuja w programie wzajemne_wykluczanie gdzie procesy modyfikuja plik numer.txt i zwiekszaja jego numer wraz z kolejnymi dzialaniami w sekcji krytycznej. Program powielacza na koniec dzialania sprawdza czy zmodyfikowany numer jest prawidlowy. Programy wypisuja w czasie rzeczywistym, przebieg operacji w semaforze.
+
+     1) powielacz.c - Program do powielania procesow ktore beda modyfikowac dane w pliku numer.txt oraz sprawdzania ich dzialania w pliku numer.txt
+     2) wzajemne_wykluczanie.c - Program realizujacy problem podany w zadaniu przez procesy potomne utworzone w programie powyzej
+     3) obsluga_semaforow.c - Program w ktorym zdefiniowane sa funkcje ktorych prototypy funkcji utworzone sa w bibliotece obsluga_semaforow.h
+     4) obsluga_semaforow.h - Biblioteka z prototypami funkcji wlasnych na potrzebe realizacji zadania
+
+Sprawdzic, jaka bedzie koncowa wartosc numeru bez uzycia sekcji krytycznej?
+
+- Odpowiedz: Wartosc bedzie wynosila liczbie procesow, dla domyslnej konfiguracji mojego programu jest to 2, ale liczbe procesow mozna zmienic w makefile.
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

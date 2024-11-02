@@ -1,0 +1,54 @@
+%!PS
+
+0 0 1 setrgbcolor
+
+/kwiatek {
+
+    x y r 0 360 arc
+
+    stroke
+
+} def
+
+/x 0 def
+
+/y 0 def
+
+/r 100 def
+
+200 200 translate
+
+gsave
+
+1 0.5 scale
+
+kwiatek
+
+grestore
+
+0.5 1 scale
+
+1 0 0 setrgbcolor
+
+kwiatek
+
+0 1 0 setrgbcolor
+
+gsave
+
+30 rotate
+
+1.5 0.5 scale
+
+kwiatek
+
+grestore
+
+-30 rotate
+
+1.5 0.5 scale
+
+kwiatek
+
+showpage
+

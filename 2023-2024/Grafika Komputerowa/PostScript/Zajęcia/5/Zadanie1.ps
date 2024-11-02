@@ -1,0 +1,71 @@
+%!PS
+
+/licznik 5 def
+/d 200 def
+
+/motyw {
+
+    0 0 moveto
+
+    0 d rlineto
+
+    currentpoint translate
+
+    0 0 0 setrgbcolor
+
+    5 setlinewidth
+
+    stroke
+
+} def
+
+/rysowanieJablka {
+
+    0 0 35 0 360 arc
+
+    0 0 0 setrgbcolor
+
+    fill
+
+} def
+
+/fraktal {
+
+    /licznik licznik 1 sub def 
+
+    gsave
+
+    0.7 0.7 scale
+
+    motyw
+
+    licznik 0 gt {
+
+        30 rotate
+
+        fraktal
+
+        -60 rotate
+
+        fraktal
+
+        
+    } if
+
+    licznik 0 eq {
+
+        rysowanieJablka
+        
+    } if
+
+    grestore
+
+    /licznik licznik 1 add def
+     
+} def
+
+300 100 translate
+
+fraktal
+
+showpage

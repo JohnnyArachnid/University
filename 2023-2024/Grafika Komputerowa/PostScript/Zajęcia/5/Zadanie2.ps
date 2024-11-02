@@ -1,0 +1,42 @@
+%!PS
+
+/wartosci [100 90 80 70 60 50 40 30 20 10] def
+
+/rozmiarTablicy 10 def
+
+/x 300 def
+
+/y 300 def
+
+/r 20 def
+
+
+0 0 0 setrgbcolor
+
+/Helvetica findfont 15 scalefont setfont
+
+0 1 rozmiarTablicy 1 sub {
+
+    /index exch def
+
+    /r r 25 add def
+    
+    index 0 eq { x y moveto } {
+        
+    /r1 r 20 sub def
+
+    x y r1 add moveto 
+    
+    } ifelse
+
+    wartosci index get dup string cvs show
+
+    newpath
+        
+    x y r 0 360 arc
+
+    stroke
+
+} for
+
+showpage

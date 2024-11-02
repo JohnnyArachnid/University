@@ -1,0 +1,91 @@
+@prefix fo: <http://www.w3.org/1999/XSL/Format#> .
+@base <http://team-zolw/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix org: <http://www.w3.org/ns/org#> . 
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix fhkb: <http://www.example.com/genealogy.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+
+<Wydarzenie> rdf:type rdfs:Class .
+
+<Czlonek-rodziny-krolewskiej> rdf:type rdfs:Class ;
+	rdfs:subClassOf foaf:Person.
+
+<#fabula-piesn-lodu-i-ognia> 
+    rdfs:label "Fabuła Pieśń Lodu i Ognia"^^xsd:string;
+    foaf:focus ( <#walka-o-wladze> "Dzieje starego lodowego muru"^^xsd:string <#losy-wygnanej-daenerys> );
+    foaf:based_near <#westeros> ;
+	a <Wydarzenie> .
+
+<#walka-o-wladze>
+    rdfs:label "Walka o władze po śmierci króla Roberta"^^xsd:string;
+    a <Wydarzenie> ;
+    <#wojna-pieciu-krolow> [
+        rdf:type rdf:Seq ;
+        rdf:_1 <#lord-eddart-stark> ;
+        rdf:_2 <#renly> ;
+        rdf:_3 <#jaffrey> ;
+        rdf:_4 <#robb> ;
+        rdf:_5 <#stannis>
+    ] .
+#    <#wojna-pieciu-krolow> ( <#lord-eddart-stark> <#renly> <#jaffrey> <#robb> <#stannis> ) .
+
+<#jaffrey>
+  	rdfs:label "Jaffrey"^^xsd:string;
+	foaf:age "12.5"^^xsd:decimal;
+ 	a <Czlonek-rodziny-krolewskiej> .
+  
+<#losy-wygnanej-daenerys>
+    rdfs:label "Losy wygnanej Daenerys"^^xsd:string;
+    rdf:about <#daenerys> ;
+    a <Wydarzenie> .
+
+<#westeros>
+    rdfs:label "Westeros"^^xsd:string;
+    dcterms:identifier "Fikcyjny świat"^^xsd:string;
+    dc:coverage "300"^^xsd:integer;
+    owl:isPartOf <#7-krolestw> .
+
+<#rod-targaryenow>
+    rdfs:label "Ród Targaryenów"^^xsd:string;
+    dc:coverage "300"^^xsd:integer;
+    <#ostatni-krol> <#aerys-II> ;
+    org:hasControl <#smoki> .
+
+<#7-krolestw>
+    rdfs:label "7 królestw"^^xsd:string;
+    prov:union <#rod-targaryenow> .
+
+<#aerys-II>
+  	rdfs:label "Aerys II"^^xsd:string;
+   	fhkb:isChildOf ( <#viserys> <#daenerys> ) .
+#   	fhkb:isChildOf [
+#        rdf:type rdf:Seq ;
+#        rdf:_1 <#viserys> ;
+#        rdf:_2 <#daenerys> ;
+#    ] .
+
+<#viserys>
+    rdfs:label "Viserys"^^xsd:string;
+    fhkb:isSiblingOf <#daenerys> .
+
+<#daenerys>
+    rdfs:label "Daenerys"^^xsd:string;
+    fhkb:isSiblingOf <#viserys> ;
+    fhkb:isWifeOf <#wazny-lokalny-wodz> ;
+    <#prezent-slubny> <#smoki> .
+
+<#wazny-lokalny-wodz>
+    rdfs:label "Wazny lokalny wodz"^^xsd:string;
+    fhkb:isHusbandOf <#viserys> ;
+    <#prezent-slubny> <#smoki> .
+
+<#smoki>
+    rdfs:label "Smoki"^^xsd:string;
+    <#czy-wyginely> "False"^^xsd:boolean.

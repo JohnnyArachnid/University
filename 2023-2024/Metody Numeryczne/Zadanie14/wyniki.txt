@@ -1,0 +1,9 @@
+Metoda Trapezow
+5.50843
+Ilosc iteracji: 4
+Metoda Simpsona
+5.50843
+Ilosc iteracji: 5
+Regula 3/8
+5.50843
+Ilosc iteracji: 4

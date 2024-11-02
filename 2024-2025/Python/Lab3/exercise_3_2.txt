@@ -1,0 +1,76 @@
+1:
+
+L = [3, 5, 4] ; L = L.sort()
+
+Tutaj kod się uruchamia. Mimo tego występuję potencjalny błąd, ponieważ metoda .sort() modyfikuje listę in-place i zwraca None. Gdy przypisujemy wynik do zmiennej L, przypisujemy jej wartość None. Stąd jeżeli autor kodu miał na myśli otrzymanie posortowanej niepustej listy, to zamiast tego otrzyma None. W celu otrzymania posortowanej listy należy nie przypisać L do L.sort():
+
+L = [3, 5, 4]
+L.sort()
+
+Jeżeli chcielibyśmy przypisać L do posortowanej listy należy użyć innej wbudowanej funkcji, sorted()
+
+L = [3, 5, 4]
+L = sorted(L)
+
+------------------------------------------------------------
+
+2:
+
+x, y = 1, 2, 3
+
+Powyżej mamy błąd składniowy, próbujemy przypisać więcej wartości, niż mamy zmiennych po lewej stronie. Aby to naprawić, liczba zmiennych po lewej stronie powinna odpowiadać liczbie wartości po prawej stronie, tak jak poniżej:
+
+x, y, z = 1, 2, 3
+
+albo
+
+x, y = 1, 2
+
+------------------------------------------------------------
+
+3:
+
+X = 1, 2, 3 ; X[1] = 4
+
+Tutaj mamy przypisanie krotki do zmiennej X. Krotki są niemodyfikowalne, więc nie możemy zmieniać ich elementów. Możemy za to utworzyć nową krotkę, jeżeli faktycznie chcemy zmienić jej zawartość, tak jak poniżej:
+
+X = (1, 4, 3)
+
+------------------------------------------------------------
+
+4:
+
+X = [1, 2, 3] ; X[3] = 4
+
+Problem z tym kodem polega na tym, że próbujemy uzyskać dostęp do indeksu 3 listy X, który nie istnieje, ponieważ listy w Pythonie są indeksowane od zera. W liście X = [1, 2, 3], maksymalny dostępny indeks to 2.
+
+------------------------------------------------------------
+
+5:
+
+X = "abc" ; X.append("d")
+
+Ten kod jest niepoprawny, ponieważ korzystamy z metody niedostępnej dla stringów tylko dla list. W celu dodania do łańcucha znaków literki d, możemy użyć konkatencji w następujący przykładowy sposób:
+
+X = "abc"
+X = X + "d" 
+
+------------------------------------------------------------
+
+6:
+
+L = list(map(pow, range(8)))
+
+Tutaj nie podajmy drugiego wymaganego argumentu do fukncji pow, w celu poprawy kodu należy go dodać. Można to zrobić z wykorzystaniem funkcji anonimowej w następujący sposób:
+
+L = list(map(lambda x: pow(x, 2), range(8))) 
+
+------------------------------------------------------------
+
+Podsumowanie:
+1: .sort() zwraca None.
+2: Niewłaściwa liczba zmiennych do przypisania.
+3: Krotki są niemodyfikowalne.
+4: Indeks poza zakresem listy.
+5: .append() jest dla list.
+6: Brak podania drugiego wymaganego argumentu do funkcji pow.

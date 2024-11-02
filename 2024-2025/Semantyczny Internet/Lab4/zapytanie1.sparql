@@ -1,0 +1,6 @@
+BASE <http://team-zolw/>
+
+SELECT ?imie 
+WHERE {
+  ?imie a <Czlonek-rodziny-krolewskiej>
+}

@@ -1,0 +1,78 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 17.03.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie1 zawiera zrealizowane programy do Cwiczenie 1
+--------------------------------------------------------------------
+
+I.   Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla danego procesu
+     Program sklada sie z:
+     1) cw_1a.c - Program Glowny
+
+II.  Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla danego procesu macierzystego oraz jego procesow potomnych, procesy potomne powstaja przez trzykrotne uzycie funkcji fork() w petli.
+Program poprzez uzycie funkcji wait(NULL), sprawi ze proces macierzysty bedzie oczekiwal na zakonczenie procesow potomnych oraz stan procesu potomnego nie zostanie zwrocony.
+     Program sklada sie z:
+     1) cw_1b.c - Program Glowny
+
+III. Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla danego procesu macierzystego oraz jego procesow potomnych, procesy potomne powstaja przez trzykrotne uzycie funkcji fork() w petli.
+Program poprzez uzycie funkcji sleep(5) sprawi ze procesy zasypiaja na 5 sekund, przez to proces sie konczy ale zaden proces na niego nie czeka, stad sprawiamy ze staje sie procesem 'zombie'.
+Procesy zombie na mojej maszynie sa adoptowane przez proces systemmd o PID: 1660.
+Program przy uruchomieniu przez make run3 sam utworzy drzewko procesow.
+     Program sklada sie z:
+     1) cw_1c.c - Program Glowny
+
+IV.  Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla danego procesu macierzystego oraz jego procesow potomnych, procesy potomne powstaja przez trzykrotne uzycie funkcji fork() w petli.
+Program poprzez uzycie funkcji sleep(2) sprawi ze procesy zasypiaja na 2 sekundy. Program wypisze procesy pokoleniowo od najstarszego do najmlodszego, proces macierzysty zakonczy sie po procesach potomnych.
+W trakcie wypisywania procesy wypisywane w tym samym momencie beda nalezec do tego samego pokolenia.
+Drzewo genealogiczne utworzonych procesow zawarlem w Odpowiedzi.txt.
+     Program sklada sie z:
+     1) cw_1d.c - Program Glowny
+
+V.   Program wypisujacy identyfikatory UID,GID,PID,PPID,PGID dla danego procesu macierzystego oraz jego procesow potomnych, procesy potomne powstaja przez trzykrotne uzycie funkcji fork() w petli.
+Program poprzez uzycie funkcji setpgid(0,proces) sprawi ze kazdy proces potomny bedzie stawac sie liderem swojej wlasnej grupy procesow.
+Odpowiedz dlatego przy n-krotnym wywolaniu funkcji fork i dlaczego zawarlem w Odpowiedzi.txt
+     Program sklada sie z:
+     1) cw_1e.c - Program Glowny 
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic 2-gi program, nalezy wykonac komende:
+       make run2
+
+-> Aby uruchomic 3-ci program, nalezy wykonac komende:
+       make run3
+
+-> Aby uruchomic 4-ty program, nalezy wykonac komende:
+       make run4
+
+-> Aby uruchomic 5-ty program, nalezy wykonac komende:
+       make run5
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+
+

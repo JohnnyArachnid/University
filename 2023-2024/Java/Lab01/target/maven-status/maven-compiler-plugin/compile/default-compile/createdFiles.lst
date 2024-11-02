@@ -1,0 +1,7 @@
+org\starmap\controller\StarMapController.class
+org\starmap\utils\DataLoader.class
+org\starmap\view\StarMapView.class
+org\starmap\utils\DataWriter.class
+org\starmap\model\Star.class
+org\starmap\MainApp.class
+org\starmap\model\Constellation.class

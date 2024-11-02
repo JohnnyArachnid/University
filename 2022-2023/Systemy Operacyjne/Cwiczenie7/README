@@ -1,0 +1,111 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 04.05.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie6 zawiera zrealizowane programy do Cwiczenie 7
+--------------------------------------------------------------------
+
+I.   Program realizujacy problem producenta-konsumenta z wykorzystaniem pamieci dzielonej oraz semaforow. W przeciwienstwie do cwiczenia 4, tutaj zamiast potoku korzystam z N-elementowego bufora cyklicznego
+umieszczonego w pamieci dzielonej. Dostep do bufora synchronizowany jest za pomoca semaforow nazwanych standardu POSIX. Tak jak podane w poleceniu programy producenta oraz konsumenta uruchamiane sa przez execlp
+w procesach potomnych utworzonych przez fork w pliku glowny.c, program ten w dodatku na koncu tak jak w cwiczeniu 6 na koniec dzialania wykonuje porzadki. W realizacji problemu korzystam z wlasnych funkcji obslugi
+semaforow oraz pamieci dzielonej (pliki: obsluga_semaforow oraz obsluga_pamieci_dzielonej). Program mozna uruchomic na dwa sposoby: make run1 uruchamia program z wykorzystaniem biblioteki statycznej, natomiast make run2
+uruchamia program z wykorzystaniem biblioteki dynamicznej.
+
+     1) glowny.c - Program do powielania procesow oraz wykonywania porzadkow
+     2) producent.c - Program producenta
+     3) konsument.c - Program konsumenta
+     4) obsluga_semaforow.h - Biblioteka z prototypami funkcji wlasnych do obslugi semaforow na potrzebe realizacji zadania
+     5) obsluga_semaforow.c - Program w ktorym zdefiniowane sa funkcje do obslugi semaforow ktorych prototypy utworzone sa w bibliotece obsluga_semaforow.h
+     6) obsluga_pamieci_dzielonej.h - Biblioteka z prototypami funkcji wlasnych do obslugi pamieci dzielonej na potrzebe realizacji zadania
+     7) obsluga_pamieci_dzielonej.c - Program w ktorym zdefiniowane sa funkcje do obslugi pamieci dzielonej ktorych prototypy utworzone sa w bibliotece obsluga_pamieci_dzielonej.h
+     8) dane.txt - Plik z danymi do odczytu w ramach realizacji problemu
+     9) wynik.txt - Plik do ktorego wpisywane beda dane w ramach realizacji problemu 
+
+* Podac w pseudokodzie uogolnienie synchronizacji dla tego problemu na przypadek wielu producentow i wielu konsumentow (dla uproszczenia przyjmijmy, ze kolejnosc przesylanych porcji danych jest dowolna).
+
+- Odpowiedz:
+
+W ramach realizacji problemu dla wielu producentow oraz konsumentow musimy skorzystac z mechanizmu synchronizacyjnego dla procesow. Mamy n konsumentow oraz producentow ktorzy rywalizuja o dostep do danych dzielonych.
+Otrzymujemy problem sekcji krytycznej w ktorej musimy zainplementowac sekcje wejsciowa w ktorej kazdy proces musi poprosic o zgode na wejscie do sekcji krytycznej oraz sekcje wyjsciowa nastepujacej po sekcji krytycznej.
+Dazymy do uzyskania rezultatu w ktorym tylko jeden proces wykonuje na raz sekcje krytycznam wowczas kiedy zaden iny proces nie jest dopuszczany do wykonania swojej sekcji krytycznej.
+Do zaimplementowania tego problemu skorzystam z algorytmu piekarni poznanego na wykladzie. Procesy przed wejsciem do sekcji krytycznej otrzymuja numer, gdzie posiadacz najmniejszego numeru wchodzi do swojej sekcji krytycznej.
+W sytuacji kiedy procesy posiadaja ten sam numer to proces o mniejszym identyfikatorze zostaje obsluzony pierwszy.
+
+Bufor sluzacy do przechowywania jednostek produktu:
+
+       Zmienne: 
+
+              Bufor: Tablica Produktow [0,...,n-1]
+              Pierwszy: 0,...,n-1
+              Licznik: 0,...,n 
+
+Producent:
+
+       Dopoki Prawda wykonuj:
+              Wyprodukuj Jednostkę Produktu
+              Dopoki Licznik = n wykonuj:
+                     Sekcja Wejściowa
+                     Bufor[(Licznik+Pierwszy)mod n] = Wyprodukowana Jednostka;
+                     Licznik += 1
+              Sekcja Wyjściowa
+
+Konsument:
+
+       Dopoki Licznik = 0 wykonuj:
+              Sekcja Wejściowa
+              Pobrana Jednostka = Bufor[Pierwszy]
+              Pierwszy = (Pierwszy+1) mod n
+              Licznik -= 1
+              Sekcja Wyjściowa
+              Skonsumuj Pobraną Jednostkę
+
+Zmienne wspoldzielone niezbedne do realizacji algorytmu piekarni:
+
+       Zmienne:
+              Wybieranie: Tablica Boolean [0,...,n], wszystkie zainicjowane na Falsz
+              Numer: Tablica Int [0,...,n], wszystkie zainicjowane na 0 
+
+Sekcja Wejsciowa:
+       Dopoki Prawda wykonuj:
+       Wybieranie[i] = Prawda;
+       Numer[i] = Maksymalna Wartosc(Numer[0],...,Numer[n-1])+1
+       Wybieranie[i] = Falsz
+       Dla j od 0 do n, gdzie j z kazdym wykonaniem petli zwiekszamy o 1, wykonuj:
+              Dopoki wybieranie[j] wykonuj:
+              Dopoki Numer[j]!=0 oraz (Numer[j],j)<(Numer[i],i) wykonuj: 
+
+Sekcja Wyjsciowa:
+
+       Numer[i] = 0
+
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program z wykorzystaniem biblioteki statycznej, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic 1-szy program z wykorzystaniem biblioteki dynamicznej, nalezy wykonac komende:
+       make run2
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

@@ -1,0 +1,1 @@
+W celu uruchomienia programu proszę skompilować i uruchomić plik tests.py i ocenić output w terminalu.

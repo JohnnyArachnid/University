@@ -1,0 +1,65 @@
+{
+    "@context": [
+        "http://www.w3.org/ns/anno.jsonld",
+        {
+            "anbase": "http://purl.org/net/ld/annot/masaka/"
+        }
+    ],
+    "type": "AnnotationPage",
+    "items": [
+        {
+            "type": "Annotation",
+            "id": "anbase:d7c2f4482fa80f413791b6f8af3055c4",
+            "bodyValue": "To jet samica kota 3 miesieczna",
+            "target": {
+                "id": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg#xywh=227,214,257,244",
+                "source": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg",
+                "selector": {
+                    "type": "FragmentSelector",
+                    "conformsTo": "http://www.w3.org/TR/media-frags/",
+                    "value": "xywh=227,214,257,244"
+                },
+                "type": "Image"
+            },
+            "creator": "urn:who.are#you",
+            "created": "2024-10-07T19:24:18+09:00",
+            "modified": "2024-10-07T19:24:18+09:00"
+        },
+        {
+            "type": "Annotation",
+            "id": "anbase:9309f63c408c13ad986ecedade10e496",
+            "bodyValue": "Kawalek zielonej trawy",
+            "target": {
+                "id": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg#xywh=599,331,169,164",
+                "source": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg",
+                "selector": {
+                    "type": "FragmentSelector",
+                    "conformsTo": "http://www.w3.org/TR/media-frags/",
+                    "value": "xywh=599,331,169,164"
+                },
+                "type": "Image"
+            },
+            "creator": "urn:who.are#you",
+            "created": "2024-10-07T19:24:39+09:00",
+            "modified": "2024-10-07T19:24:39+09:00"
+        },
+        {
+            "type": "Annotation",
+            "id": "anbase:6eab3195783a6de51e7000cd5e3e124c",
+            "bodyValue": "Oto moj domu",
+            "target": {
+                "id": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg#xywh=10,1,91,223",
+                "source": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ma%C5%82y_kot_domowy.jpg",
+                "selector": {
+                    "type": "FragmentSelector",
+                    "conformsTo": "http://www.w3.org/TR/media-frags/",
+                    "value": "xywh=10,1,91,223"
+                },
+                "type": "Image"
+            },
+            "creator": "urn:who.are#you",
+            "created": "2024-10-07T19:24:50+09:00",
+            "modified": "2024-10-07T19:24:50+09:00"
+        }
+    ]
+}

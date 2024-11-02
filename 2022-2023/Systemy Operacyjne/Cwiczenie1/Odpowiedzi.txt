@@ -1,0 +1,40 @@
+Zadanie 1.c 
+
+Informacje na temat Procesu o ID (PID): 5226, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5200, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5236, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5226, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5237, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5226, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5238, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5226, ID Grupy Procesow (PGID): 5226
+[1] + Done                       "/usr/bin/gdb" --interpreter=mi --tty=${DbgTerm} 0<"/tmp/Microsoft-MIEngine-In-nazajiov.oof" 1>"/tmp/Microsoft-MIEngine-Out-hupehwm0.nku"
+vboxuser@Ubuntu:~/Desktop/Systemy Operacyjne/Cwiczenie1$ Informacje na temat Procesu o ID (PID): 5264, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5236, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5265, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5236, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5266, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 1660, ID Grupy Procesow (PGID): 5226
+Informacje na temat Procesu o ID (PID): 5279, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 1660, ID Grupy Procesow (PGID): 5226
+
+PID procesu adoptujacego procesy "zombie": 1660 (systemmd)
+
+Zadanie 1.d
+
+Informacje na temat Procesu o ID (PID): 5003, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 4980, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5032, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5003, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5034, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5032, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5033, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5003, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5051, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5034, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5050, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5032, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5052, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5033, ID Grupy Procesow (PGID): 5003
+Informacje na temat Procesu o ID (PID): 5053, ID Uzytkownika (UID): 1000, ID Grupy (GID): 1000, ID Procesu Przodka (PPID): 5003, ID Grupy Procesow (PGID): 5003
+
+Wypisywanie Procesow w postaci (PID/PPID/PGID):
+
+Pokolenie 1.                                                                                                   (5003/4980/5003)
+                                                                          |                                                                                        |
+Pokolenie 2.                                               (5003/4980/5003)                                                                                        (5032/5003/5003)
+                                                |                                     |                                                                   |                                    |
+Pokolenie 3.                     (5003/4980/5003)                                     (5033/5003/5003)                                    (5032/5003/5003)                                     (5034/5032/5003)
+                                |                |                                   |                 |                                 |                 |                                  |                 |
+Pokolenie 4.     (5003/4980/5003)                (5053/5003/5003)     (5033/5003/5003)                 (5052/5033/5003)  (5032/5003/5003)                  (5050/5032/5003)   (5034/5032/5003)                  (5051/5034/5003)
+
+Zadanie 1.e
+
+Przy n-krotnym wywolaniu funckji fork(), powstanie 2^n procesow, gdzie n to liczba wykonan funkcji fork(). Uzasadnieniem jest fakt iz fork() tworzy kopie procesu macierzystego i czyni go procesem potomnym, przy pierwszym wywolaniu tej funkcji z jednego procesu glownego wykonujacego program powstanie nam drugi proces potomny wykonujacy ten sam program, czyli dla jednego fork mamy 2^1 otrzymanych procesow co sie zgadza bo mamy 2.
+Dla n-1 wywolan funkcji otrzymamy otrzymamy 2^(n-1) (zalozenie indukcyjne w dowodzie indukcyjnym), dalej dla 2^n, bedzie spelnione poniewaz dla 2^(n-1) tworzymy dla kazdego procesu jego kopie czyli mnozymy razy 2, stad 2^(n-1)*2 = 2^n.
+Na mocy dowodu indukcyjnego 2^n procesow dla n wywolan funkcji fork() jest spelnione.

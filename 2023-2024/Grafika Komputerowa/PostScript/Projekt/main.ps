@@ -1,0 +1,302 @@
+%!PS
+% Projekt Postscript Pocztówka / Reklama Lego
+% Autor: Daniel Szarek
+
+% Tablica z kolorami dla tła z Klockow Lego
+/kolory [100 90 80 70 60 50 40 30 20 10] def
+/rozmiarTablicy 10 def
+
+% Funkcja rysująca pojedynczy Klocek Lego
+/KlocekLego {
+    /iteratorY exch def
+    /iteratorX exch def
+    /y_begin exch def
+    /x_begin exch def
+    gsave
+    x_begin y_begin KlocekLegoCien
+    newpath
+    x_begin y_begin moveto
+    50 0 rlineto
+    0 50 rlineto
+    -50 0 rlineto
+    0 -50 rlineto
+    closepath
+    % Utworzenie obramówki obrazka
+    iteratorX 0 eq iteratorY 0 eq or iteratorX 11 eq iteratorY 16 eq or or
+    {
+        % Ustawienie wartosci dla ramki
+        /value 110 def
+    }
+    {
+        % Wylosowanie indeksu tablicy
+        /index iteratorX iteratorY 2 add mul rand add rozmiarTablicy mod def
+        % Pobranie wartości z tablicy na podstawie wylosowanego indeksu
+        /value kolory index get def
+    } ifelse
+    value 110 eq {
+            0 0 0 setrgbcolor   % Ustaw czarny kolor dla wartości równych 110 dla ramki
+        } {
+        value 100 eq {
+            1 0 0 setrgbcolor   % Ustaw czerwony kolor dla wartości równych 100
+        } {
+            value 90 eq {
+                1 0.5 0 setrgbcolor   % Ustaw pomarańczowy kolor dla wartości równych 90
+            } {
+                value 80 eq {
+                    1 1 0 setrgbcolor   % Ustaw żółty kolor dla wartości równych 80
+                } {
+                    value 70 eq {
+                        0 1 0 setrgbcolor   % Ustaw zielony kolor dla wartości równych 70
+                    } {
+                        value 60 eq {
+                            0 1 1 setrgbcolor   % Ustaw cyjanowy kolor dla wartości równych 60
+                        } {
+                            value 50 eq {
+                                0 0 1 setrgbcolor   % Ustaw niebieski kolor dla wartości równych 50
+                            } {
+                                value 40 eq {
+                                    0.5 0 1 setrgbcolor   % Ustaw fioletowy kolor dla wartości równych 40
+                                } {
+                                    value 30 eq {
+                                        1 0 1 setrgbcolor   % Ustaw różowy kolor dla wartości równych 30
+                                    } {
+                                        value 20 eq {
+                                            0.6 0.6 0.6 setrgbcolor   % Ustaw szary kolor dla wartości równych 20
+                                        } {
+                                            value 10 eq {
+                                                1 0.85 0 setrgbcolor   % Ustaw zloty kolor dla wartości równych 10
+                                            } if
+                                        } ifelse
+                                    } ifelse
+                                } ifelse
+                            } ifelse
+                        } ifelse
+                    } ifelse
+                } ifelse
+            } ifelse
+        } ifelse
+    } ifelse
+    fill
+    % Dziura 1 na klocku Lego
+    x_begin 15 add y_begin 15 add translate
+    KlocekLegoKolko
+    % Dziura 2 na klocku Lego
+    20 0 translate
+    KlocekLegoKolko
+    % Dziura 3 na klocku Lego
+    0 20 translate
+    KlocekLegoKolko
+    % Dziura 4 na klocku Lego
+    -20 0 translate
+    KlocekLegoKolko
+    grestore
+} def
+
+% Funkcja rysująca cień pojedynczego Klocka Lego
+/KlocekLegoCien {
+    /y_begin exch def
+    /x_begin exch def
+    gsave
+    1.5 setlinewidth
+    0.5 setgray
+    newpath
+    x_begin y_begin moveto
+    50 0 rlineto
+    0 50 rlineto
+    -50 0 rlineto
+    0 -50 rlineto
+    closepath
+    stroke
+    grestore
+} def
+
+% Funkcja rysująca kółko z cieniem z klocku Lego
+/KlocekLegoKolko {
+    gsave
+    0.5 setgray
+    2 setlinewidth
+    0 0 6 0 360 arc fill
+    grestore
+    0 0 5 0 360 arc fill
+} def
+
+% Rysowanie tła dla Twarzy Lego
+/TloTwarzLego {
+    gsave
+    % Skalowanie i Obracanie
+    5 5 scale
+    45 rotate
+    newpath
+    85 0 moveto
+    75 0 rlineto
+    0 75 rlineto
+    -75 0 rlineto
+    0 -75 rlineto
+    closepath
+    gsave
+    1 1 1 setrgbcolor
+    fill
+    grestore
+    0 0 0 setrgbcolor
+    stroke
+    grestore
+} def
+
+/TwarzLego {
+    % Definicje kolorów dla Twarzy Lego
+    /KolorZolty { 0.95 0.76 0.02 setrgbcolor } def
+    /KolorCzarny { 0 0 0 setrgbcolor } def
+    /KolorBialy { 1 1 1 setrgbcolor } def
+    /KolorCzerwony { 1 0 0 setrgbcolor } def
+    % Narysowanie głowy Lego
+    KolorZolty
+    gsave
+    newpath
+    200 575 moveto
+    200 0 rlineto
+    0 50 rlineto
+    350 625 50 0 90 arc
+    -50 0 rlineto
+    250 625 50 90 180 arc
+    0 -50 rlineto
+    closepath
+    fill
+    % Odbicie Glowy
+    grestore
+    gsave
+    1 -1 scale
+    newpath
+    200 -575 moveto
+    200 0 rlineto
+    0 50 rlineto
+    350 -525 50 0 90 arc
+    -50 0 rlineto
+    250 -525 50 90 180 arc
+    0 -50 rlineto
+    closepath
+    fill
+    grestore
+    % Narysowanie przycisku na górze głowy
+    gsave
+    KolorZolty
+    newpath
+    265 675 moveto
+    0 25 rlineto
+    265 700 300 725 335 700 curveto
+    0 -25 rlineto
+    fill
+    closepath
+    grestore
+    % Narysowanie szyi
+    gsave
+    KolorZolty
+    newpath
+    275 475 moveto
+    0 -30 rlineto
+    50 0 rlineto
+    0 30 rlineto
+    fill
+    closepath
+    grestore
+    % Narysowanie Oczu, Brwi oraz Buzi
+    gsave
+    KolorCzarny
+    350 620 15 0 360 arc
+    fill
+    250 620 15 0 360 arc
+    fill
+    KolorBialy
+    350 625 5 0 360 arc
+    fill
+    250 625 5 0 360 arc
+    fill
+    grestore
+    gsave
+    KolorCzarny
+    newpath
+    2 setlinewidth
+    325 650 moveto
+    325 650 350 675 375 650 curveto
+    stroke
+    closepath
+    newpath
+    2 setlinewidth
+    225 650 moveto
+    225 650 250 675 275 650 curveto
+    stroke
+    closepath
+    grestore
+    gsave
+    KolorCzerwony
+    5 setlinewidth
+    275 550 moveto
+    275 550 300 475 325 550 curveto
+    stroke
+    grestore
+} def
+
+/NapisLego {
+    % Rysowanie Tła Napisu Lego
+    gsave
+    newpath
+    150 100 moveto
+    300 0 rlineto
+    0 150 rlineto
+    -300 0 rlineto
+    0 -150 rlineto
+    closepath
+    gsave
+    1 0 0 setrgbcolor
+    fill
+    grestore
+    5 setlinewidth
+    0 0 0 setrgbcolor
+    stroke
+    grestore
+    gsave
+    % Ustawienie cienia napisu Lego
+    0.1 setgray
+    195 150 3 sub moveto
+    /Helvetica-Oblique findfont
+    75 scalefont setfont
+    (LEGO) show
+    grestore
+    gsave
+    % Ustawienie obwoluty napisu Lego
+    1 1 0 setrgbcolor
+    195 3 sub 150 moveto
+    /Helvetica-Oblique findfont
+    78 scalefont setfont
+    (LEGO) show
+    grestore
+    gsave
+    % Rysowanie napisu LEGO
+    195 150 moveto
+    1 1 1 setrgbcolor
+    /Helvetica-Oblique findfont
+    75 scalefont setfont
+    (LEGO) show
+    grestore
+} def
+
+/Projekt {
+    % Rysowanie tła Lego
+    0 1 16 {
+        /iteratorY exch def   % Przypisanie wartości iteratora do zmiennej iteratorY
+        /y_begin iteratorY 50 mul def  % Obliczenie y_begin dla obecnego klocka
+        0 1 12 {
+            /iteratorX exch def   % Przypisanie wartości iteratora do zmiennej iteratorX
+            /x_begin iteratorX 50 mul def  % Obliczenie x_begin dla obecnego klocka
+            x_begin y_begin iteratorX iteratorY KlocekLego  % Rysowanie klocka Lego
+        } for
+    } for
+    TloTwarzLego % Rysowanie Tła Twarzy Lego
+    TwarzLego % Rysowanie Twarzy Lego
+    NapisLego % Napisanie Napisu Lego
+} def
+
+Projekt % Rysowanie Całego Projektu
+
+showpage
+
+

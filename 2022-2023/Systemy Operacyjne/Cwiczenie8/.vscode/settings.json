@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "obsluga_kolejki_komunikatow.h": "c",
+        "fcntl.h": "c"
+    }
+}

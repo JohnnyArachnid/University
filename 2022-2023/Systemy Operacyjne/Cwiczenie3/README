@@ -1,0 +1,65 @@
+========================================================================
+Autor: Daniel Szarek,                               Krakow, 06.04.2023r.
+========================================================================
+
+* Zawartosc:
+============
+
+Katalog Cwiczenie3 zawiera zrealizowane programy do Cwiczenie 3
+--------------------------------------------------------------------
+
+I.   Program obslugujacy sygnaly z trzema mozliwosciami: (1) Wykonanie operacji domyslnej, (2) ignorowanie, (3) przechwycenie i wlasnej oblugi sygnalu, funkcje odpowiadajaca za wlasna obsluge sygnalu zdefiniowalem
+     jako sighandler przyjmujaca jako argument numer sygnalu i wypisujaca ja na ekranie. Aby program byl w pelni funkcjonalny nalezy w osobnym terminalu wyslac komende kill -NRSYGNALU oraz PIDPROCESU, ktory wyswietli
+     sie na ekranie. W celu modyfikacji NRSYGNALU czy OPCJI wykonania programu nalezy skonfigurowac zmienne NROPCJI oraz NRSYGNALU w Makefile.
+     Program sklada sie z:
+     1) cw_3a.c - Program Glowny
+     2) funkcje.h - Plik Naglowkowy z funkcja wypisanie numeru procesu PID() oraz funkcja sighandler(int sig) wypisujaca numer sygnalu
+
+II.  Program wykonujacy zadanie z podpunktu poprzedniego, z ta roznica ze dzieki wykorzystaniu funkcji fork(), mozemy sprawic ze proces potomny bedzie otwieral przez funckcje execlp z odpowiednimi argumentami plik
+     z zadanie cw_3a.c oraz modyfikowal swoje zachowanie na otrzymanie sygnalu, proces macierzysty wyrecza nas i nie potrzebny bedzie zewnetrzny terminal do wykonania zadania, ten proces bedzie przesylal sygnal do
+     procesu potomnego.
+     Program sklada sie z:
+     1) cw_3b.c - Program Glowny
+     2) cw_3a.c - Program wywolywany przez funkcje execlp w programie glownym
+     3) funkcje.h - Plik Naglowkowy z funkcja wypisanie numeru procesu PID() oraz funkcja sighandler(int sig) wypisujaca numer sygnalu
+
+III. Program wykonujacy zadanie z podpunktu poprzedniego, z ta roznica ze dzieki zapetleniu funkcji fork() [Na potrzebe zadania wywolalem funkcje fork() 3 razy] w osobnym pliku i sprawieniu ze pierwszy proces potomny
+     staje sie liderem swojej grupy dzieki procesowi macierzystemu mozemy wysylac sygnaly dla calej grupy. Pierwszy proces potomny ignoruje otrzymanie sygnalu, oczekuje na zakonczenie wszystkich swoich procesow potomnych i wypisuje ich identyfikatory PID oraz status zakonczenia. W przypadku zakonczenia procesow przez sygnal, program wypisze rowniez numer i nazwe odpowiedniego sygnalu. To tyczy sie rowniez pierwszego procesu macierzystego.
+     Program sklada sie z:
+     1) cw_3cG.c - Program Glowny
+     2) cw_3cP.c - Program potomny, sluzacy do zapetlenia funkcji fork() oraz odpowiedniej obslugi utworzonych procesow potomnych
+     3) cw_3a.c - Program wywolywany przez funkcje execlp w programie potomnym
+     4) funkcje.h - Plik Naglowkowy z funkcja wypisanie numeru procesu PID() oraz funkcja sighandler(int sig) wypisujaca numer sygnalu
+------------------------------------------------------------------------
+
+* Jak uruchomic programy:
+=========================
+
+Katalog zawiera program Makefile do kompilacji
+i uruchamiania powyzszych programow, a takze czyszczenia katalogu 
+i jego archiwizacji.
+
+-> Aby uruchomic 1-szy program, nalezy wykonac komende:
+       make run1
+
+-> Aby uruchomic 2-gi program, nalezy wykonac komende:
+       make run2
+
+-> Aby uruchomic 3-ci program, nalezy wykonac komende:
+       make run3
+
+-> W celu wykonania wszystkich programow rownoczesnie, a nie ich uruchomienia, nalezy uzyc komende:
+       make all
+
+-> Aby wyczyscic zawartosc katalogu (usunac zbedne pliki), nalezy wykonac:
+       make clean
+
+-> W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+       make tar
+
+---> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+     a nie wbudowane polecenia make'a, uzyc opcji -r, tzn.
+       make -r run1
+========================================================================
+
+

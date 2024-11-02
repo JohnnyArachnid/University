@@ -1,0 +1,3 @@
+W celu oceny programów od 3_3 do 3_10 z wyjątkiem 3_7 oraz 3_4 proszę skompilować i uruchomić plik tests.py i ocenić output w terminalu.
+Zadanie 3_4 zważając na fakt, żę występuję w nim potencjalnie długa pętla to terminal przy pozostałych testach nie wyglądałby zbyt ładnie, stąd umieściłem to zadanie w osobnym pliku exercise_3_4. Proszę go uruchomić podobnie jak tests.py i oceniń output w terminalu.
+Rezultat zadań 3_1 oraz 3_2 zamieszczam w plikach tekstowych: exercise_3_1.txt oraz exercise_3_2.txt.

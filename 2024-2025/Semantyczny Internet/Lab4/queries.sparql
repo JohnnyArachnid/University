@@ -1,0 +1,91 @@
+BASE <http://team-zolw/>
+PREFIX fam: <http://fam.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX fhkb: <http://www.example.com/genealogy.owl#> 
+
+# 2 interesting SELECT queries
+
+SELECT ?krol
+WHERE {
+  <#walka-o-wladze> <#wojna-pieciu-krolow> [
+      a rdf:Seq ;
+      rdfs:member ?krol;
+  ]
+}
+
+SELECT ?imie 
+WHERE {
+  ?imie a <Czlonek-rodziny-krolewskiej>;
+    foaf:age ?age .
+}
+
+# 2 FILTER queries
+
+SELECT ?imie ?age
+WHERE {
+  ?imie a <Czlonek-rodziny-krolewskiej>;
+    foaf:age ?age .
+  FILTER(FLOOR(?age) <= "12"^^xsd:integer)
+}
+
+SELECT * WHERE{
+    ?a ?b ?c.
+    FILTER(CONTAINS(?c, "slubny"^^xsd:string) || CONTAINS(?a, "slubny"^^xsd:string) || CONTAINS(?b, "slubny"^^xsd:string))
+}
+
+# Additional Filter query
+
+SELECT * WHERE{
+    ?a ?b ?c.
+    FILTER(?a = <#viserys> || ?b = <#viserys> || ?c = <#viserys>).
+    FILTER(?b != rdfs:label && ?b != rdf:first)
+}
+
+# 2 CONSTRUCT queries with rules
+
+CONSTRUCT {
+  ?person fam:hasDragonGift "True"^^xsd:boolean .
+}
+WHERE {
+  ?person <#prezent-slubny> <#smoki> .
+}
+
+CONSTRUCT {
+  ?husband fam:politicalAlliance ?wife .
+}
+WHERE {
+  ?husband fhkb:isHusbandOf ?wife .
+  ?husband a <Czlonek-rodziny-krolewskiej> .
+  ?wife a <Czlonek-rodziny-krolewskiej> .
+}
+
+# Additional 2 CONSTRUCT queries with rules including FILTER
+
+CONSTRUCT {
+    ?a fam:inFamily ?c .
+} WHERE{
+    ?a ?b ?c.
+    FILTER(?b = fhkb:isChildOf || ?b = fhkb:isHusbandOf || ?b = fhkb:isSiblingOf || ?b = fhkb:isWifeOf)
+}
+
+CONSTRUCT {
+    ?a fam:underAge "True"^^xsd:boolean.
+}
+WHERE {
+    ?a foaf:age ?b.
+    FILTER(?b < 18)
+}
+
+# ASK and DESCRIBE query
+
+ASK {
+    ?a <#czy-wyginely> ?c.
+}
+
+DESCRIBE ?x WHERE{
+    ?x prov:union <#rod-targaryenow>.
+}

@@ -1,0 +1,29 @@
+%!PS
+
+0 0 1 setrgbcolor
+
+/rysowanieKola {
+
+    x y r 0 360 arc
+
+    stroke
+
+} def
+
+/x 250 def
+
+/y 250 def
+
+/r 100 def
+
+3 { 
+
+    /y y 25 add def
+
+    /r r 25 sub def
+
+    rysowanieKola
+
+} repeat
+
+showpage

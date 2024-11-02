@@ -1,0 +1,36 @@
+%!PS
+
+/rysujF { 0 0 moveto d 0 rlineto currentpoint translate 0 0 0 setrgbcolor stroke } def
+
+/rysujf { 0 0 moveto d 0 rlineto currentpoint translate 1 1 1 setrgbcolor stroke } def
+
+/iter 0 def
+
+/d 15 def
+
+/F {
+
+    /iter iter 1 add def
+
+    iter 4 le { F f F } { rysujF } ifelse
+
+    /iter iter 1 sub def
+
+} def
+
+/f { 
+    
+    /iter iter 1 add def
+
+    iter 4 le { f f f } { rysujf } ifelse
+
+    /iter iter 1 sub def
+
+} def
+
+100 400 translate
+
+F
+
+showpage
+

@@ -1,0 +1,59 @@
+%!PS
+
+/kwadrat {
+
+    /a exch def
+
+    /r exch def
+
+    currentpoint translate
+
+    gsave
+
+    0 0 1 setrgbcolor
+
+    0 r moveto
+    
+    0 a a a r arct
+
+    r a moveto
+
+    a a a 0 r arct
+
+    a a r sub moveto
+
+    a 0 0 0 r arct
+
+    a r sub 0 moveto
+
+    0 0 0 a r sub r arct
+
+    stroke
+
+    grestore
+
+    gsave
+
+    0 1 0 setrgbcolor
+
+    0 0 moveto
+
+    0 a rlineto
+
+    a 0 rlineto     
+
+    0 a neg rlineto     
+
+    a neg 0 rlineto
+
+    stroke
+
+    grestore
+
+} def
+
+200 300 moveto
+    
+30 200 kwadrat
+
+showpage

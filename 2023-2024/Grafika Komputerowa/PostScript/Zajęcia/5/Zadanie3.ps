@@ -1,0 +1,35 @@
+%!PS
+
+/filledcircle {
+
+    /b exch def
+
+    /g exch def
+
+    /r exch def
+
+    /y exch def
+
+    /x exch def
+
+    /radius exch def
+
+    gsave
+
+    x y radius 0 360 arc
+
+    r g b setrgbcolor
+
+    fill
+
+    grestore
+
+} def
+
+100 200 200 1 0 0 filledcircle
+
+50 200 400 0 1 0 filledcircle
+
+10 400 100 0 0 1 filledcircle
+
+showpage

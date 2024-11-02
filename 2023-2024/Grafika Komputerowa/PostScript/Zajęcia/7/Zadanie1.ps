@@ -1,0 +1,39 @@
+%!PS
+
+/srodekKolaX 300 def
+
+/srodekKolaY 400 def
+
+/rysowanieKola {
+
+    /a exch def
+
+    /r exch def
+
+    1 1 a {
+
+        /iterator exch def
+
+        /temp iterator 1 sub def
+
+        gsave
+
+        newpath
+
+        srodekKolaX srodekKolaY moveto
+        
+        temp a div 1 1 sethsbcolor
+
+        srodekKolaX srodekKolaY r temp 360 mul a div iterator 360 mul a div arc
+
+        fill
+
+        grestore
+    
+    } for
+
+} def 
+
+150 12 rysowanieKola
+
+showpage
