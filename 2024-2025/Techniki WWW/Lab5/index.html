@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5</title>
+</head>
+<body>
+    <div id="zad1">
+        <label for="input-text">Podaj tekst</label>
+        <input name="input-text" id="input-text" type="text" />
+        <button id="submit" onclick="addTekst()">Zatwierdź tekst</button>
+        <div id="result" style="border: 1px solid black;">
+        </div>
+    </div>
+
+    <div id="zad2" style="display: flex; align-items: center; justify-content: center; position: relative; width: 220px;">
+        <button id="left" onclick="changePhotoLeft()" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%);">←</button>
+        <div id="zdjecie" width="200px" height="200px">
+
+        </div>
+        <button id="right" onclick="changePhotoRight()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">→</button>
+    </div>    
+    <script src="script.js"></script>
+</body>
+</html>
