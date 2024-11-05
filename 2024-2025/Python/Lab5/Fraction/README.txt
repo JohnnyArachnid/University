@@ -1,0 +1,1 @@
+W celu uruchomienia programu proszę skompilować i uruchomić plik test_fracs.py i ocenić output w terminalu.
