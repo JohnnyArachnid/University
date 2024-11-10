@@ -1,0 +1,1 @@
+W celu uruchomienia programów dla dwóch klas Point oraz Rectangle proszę skompilować i uruchomić plik test_points.py oraz plik test_rectangles.py i ocenić output w terminalu.
