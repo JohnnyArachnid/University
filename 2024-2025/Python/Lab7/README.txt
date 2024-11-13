@@ -1,0 +1,1 @@
+W celu uruchomienia programów dla zadań 7.1 oraz 7.6 proszę skompilować i uruchomić plik test_francs.py oraz plik test_exercise_7_6.py i ocenić output w terminalu.
