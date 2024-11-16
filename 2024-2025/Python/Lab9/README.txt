@@ -1,0 +1,1 @@
+W celu uruchomienia gry Pong proszę skompilować i uruchomić z wykorzystaniem zainstalowanej biblioteki pygame plik main.py ocenić output podczas rozgrywki. Jeżeli wystąpiłyby problemy z uruchomieniem przez FileNotFoundError: No file 'photos\icon.png' found in working directory, proszę upewnić się, że podczas uruchamiania w terminalu jest się w folderze Lab9.
