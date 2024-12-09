@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Komiksowy Blog na temat uniwersum Marvela">
+    <meta name="keywords" content="Blog Komiksowy, Komiksy, Marvel Comic, Marvel, Zapowiedzi Komiksowe">
+    <meta name="author" content="Daniel Szarek">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../photos/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../css/zapowiedzi_komiksowe.css">
+    <title>Marvelous Comic Blog - Zapowiedzi Komiksowe</title>
+</head>
+<body>
+    <div class="container-main container d-flex flex-column px-0 border border-dark border-5 rounded-4 bg-light bg-gradient roboto-regular">
+        <header class="d-flex align-items-center p-3 border-bottom border-danger border-3 gap-3">
+            <div class="flex-grow-1">
+                <h1 class="mb-1 bangers-regular">MARVELOUS COMIC BLOG</h1>
+                <p class="mb-0 bangers-regular">Komiksowy blog na temat uniwersum marvela</p>
+            </div>
+            <a href="../../../index.html">
+                <img src="../../../photos/logo.png" alt="Logo" class="img-fluid logo-image">
+            </a>
+        </header>
+        <nav class="align-items-center p-3 border-bottom border-danger border-3 bangers-regular">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a href="../../../index.html" class="nav-link">Blog 📖</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./zapowiedzi_komiksowe.html" class="nav-link active bg-danger bg-gradient">Zapowiedzi Komiksowe 📒</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./wiki_postaci.html" class="nav-link">Wiki Postaci 📰</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./o_stronie.html" class="nav-link">O Stronie 🧑</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3">
+            <table class="table table-light table-bordered table-responsive">
+                <thead class="table-danger">
+                  <tr>
+                    <th scope="col">Nazwa Komiksu</th>
+                    <th scope="col">Data Wydania</th>
+                    <th scope="col">Oczekiwania</th>
+                    <th scope="col">Podgląd Okładki Komiksu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Kaczogród. Atak robotów i inne historie z lat 1964-1966</th>
+                        <td>Późny 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 1" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 60%">60%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks1">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Batman. Łowy</th>
+                        <td>Późny 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 2" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 80%">80%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks2">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">X-Men. Punkty zwrotne. Pieśń egzekutora</th>
+                        <td>Połowa 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 3" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 95%">95%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks3">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Ronin</th>
+                        <td>Połowa 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 4" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks4">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Rządy X. X-Men. Tom 2</th>
+                        <td>Połowa 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 5" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 55%">55%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks5">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Amazing Spider-Man. Spisek Kameleona. Tom 14</th>
+                        <td>Początek 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 6" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks6">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Star Wars. Darth Vader. Mroczne droidy. Tom 8</th>
+                        <td>Początek 2025</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 7" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 90%">90%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks7">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Smerfy i fioletowa fasola. Tom 35</th>
+                        <td>Koniec 2024</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 8" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 40%">40%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks8">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Przygody Supermana. Jon Kent</th>
+                        <td>Koniec 2024</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 9" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 75%">75%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks9">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center align-middle">
+                        <th scope="row">Mali bogowie. Kreteńska zabawa. Tom 11</th>
+                        <td>Koniec 2024</td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Komiks 10" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-danger" style="width: 30%">30%</div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#komiks10">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" id="komiks1" tabindex="-1" aria-labelledby="Komiks 1" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header">
+                      <h5 class="modal-title bangers-regular text-danger">Kaczogród. Atak robotów i inne historie z lat 1964-1966</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks1.webp" alt="Komiks 1" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks2" tabindex="-1" aria-labelledby="Komiks 2" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Batman. Łowy</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks2.webp" alt="Komiks 2" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks3" tabindex="-1" aria-labelledby="Komiks 3" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">X-Men. Punkty zwrotne. Pieśń egzekutora</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks3.webp" alt="Komiks 3" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks4" tabindex="-1" aria-labelledby="Komiks 4" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Ronin</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks4.webp" alt="Komiks 4" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks5" tabindex="-1" aria-labelledby="Komiks 5" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Rządy X. X-Men. Tom 2</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks5.webp" alt="Komiks 5" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks6" tabindex="-1" aria-labelledby="Komiks 6" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Amazing Spider-Man. Spisek Kameleona. Tom 14</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks6.webp" alt="Komiks 6" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks7" tabindex="-1" aria-labelledby="Komiks 7" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Star Wars. Darth Vader. Mroczne droidy. Tom 8</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks7.webp" alt="Komiks 7" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks8" tabindex="-1" aria-labelledby="Komiks 8" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Smerfy i fioletowa fasola. Tom 35</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks8.webp" alt="Komiks 8" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks9" tabindex="-1" aria-labelledby="Komiks 9" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Przygody Supermana. Jon Kent</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks9.webp" alt="Komiks 9" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal fade" id="komiks10" tabindex="-1" aria-labelledby="Komiks 10" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header text-center">
+                      <h5 class="modal-title bangers-regular text-danger">Mali bogowie. Kreteńska zabawa. Tom 11</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../../../photos/komiks10.webp" alt="Komiks 10" class="img-fluid h-100" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </main>
+        <footer class="d-flex align-items-center p-3 gap-3">
+            <div class="flex-grow-1">
+                <p class="mb-0 roboto-bold-italic">© 2024 MarvelousComicBlog. Wszelkie prawa zastrzeżone.</p>
+            </div>
+            <div class="align-items-center">
+                <p class="mb-2 roboto-medium">Marvelous Comic Blog w sieci 🕸️</p>
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="../../../photos/facebook.png" alt="Facebook" width="30" height="30">
+                    </a>
+                    <a href="https://x.com/?lang=pl" target="_blank">
+                        <img src="../../../photos/X.webp" alt="X" width="30" height="30">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="../../../photos/instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
+                    <a href="https://www.tiktok.com/pl-PL/" target="_blank">
+                        <img src="../../../photos/ticktok.png" alt="Ticktok" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

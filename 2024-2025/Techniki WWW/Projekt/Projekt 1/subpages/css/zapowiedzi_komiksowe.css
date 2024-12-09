@@ -1,0 +1,11 @@
+td .button {
+    transition: background-color 0.3s ease;
+}
+
+td .button:hover {
+    background-color: darkred!important;
+}
+
+td .button:active {
+    background-color: black!important;
+}

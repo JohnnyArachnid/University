@@ -1,0 +1,29 @@
+/* Powiększenie danego carda po najechaniu myszką */
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Zapewnienie jednakowej przestrzeni na zdjęcia */
+.card-photo {
+    position: relative;
+    width: 100%;
+     /* Proporcja 16:9 */
+    padding-top: 56.25%;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+/* Wypełnienie zdjęcia */
+.card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

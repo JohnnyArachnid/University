@@ -1,0 +1,17 @@
+/* Ograniczenie rozmiaru kontenera dla obiektu Carousel bootstrap */
+
+#carouselPostacie {
+    max-width: 600px;
+}
+
+/* Maksymalna wielkość zdjęć */
+.img-fixed-size {
+    max-height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Powiększenie danego zdjęcia po najechaniu myszką */
+.img-fixed-size:hover {
+    transform: scale(0.95);
+}
