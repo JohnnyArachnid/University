@@ -1,0 +1,104 @@
+.div_content_container_register{
+  display:flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 50vw;
+  max-width: 390px;
+  min-height: 340px;
+  min-width: 250px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+.gradient_section_register {
+  width:100%;
+
+  background: linear-gradient(
+  20deg, 
+  #A00034 0%,      /* ciemna czerwień */
+  #C2185B 35%,     /* rozowy */
+  #FF0033 40%,     /* jaskrawy czerwony */
+  #FF4081 70%,     /* Intensywny różowy */
+  #FF1744 90%,     /* Czerwień z różem */
+  #A00034 100%     /* ciemna czerwien */
+  );
+  height: 100%;
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  z-index: -1; /* Gradient w tle */
+
+}
+.title {
+  width: 270px;
+  min-width:270px;
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 80px;
+  margin-bottom: 20px;
+  /* border: 2px black dotted; */
+  display:inline-flex;
+}
+.register_box {
+  /* border: 2px black dotted; */
+  width: 65vw;
+  max-width: 700px;
+  min-width: 400px;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.register_box label {
+  color: black;
+  margin: 10px 0 5px;
+  }
+  .registration_form{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px blue dotted; */
+}
+.register_box input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 35vw;
+  max-width: 290px;
+  min-width: 200px;
+}
+
+.register_box button {
+  font-size:15px;
+  font-weight: bold;
+  margin-top: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #740938;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.register_box button:hover {
+  background: #a52a2a;
+}
+
+@media (max-width: 970px) { 
+  .register-box {
+    flex-direction: column;
+  }
+  .title {
+    align-self: center;
+  }
+
+}

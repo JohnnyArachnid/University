@@ -1,0 +1,138 @@
+
+/* Tu ten prostokat na srodku */
+.div_content_container {
+margin-top:50px;
+display:flex;
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 15px;
+padding: 20px;
+width: 85vw;
+max-width: 1390px;
+height: 100vh;
+height: fit-content;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+/* border: 2px black dotted; */
+justify-content: center;
+}
+.content {
+/* border: 2px orange dotted; */
+}
+.user_section {
+display: flex;
+flex-direction: column;
+/* border: 2px black dotted; */
+width: 85vw;
+position: relative;
+min-height: 550px;
+}
+
+.form {
+display: flex;
+flex-direction: row;
+min-height: 550px;
+}
+
+.form .left_side {
+width: 400px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+}
+.form .right {
+margin-left: 15px;
+/* border: 2px black dotted; */
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+}
+.user_section h2 {
+align-self: center;
+color: #740938;
+font-size: 60px;
+}
+
+.user_section p {
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #740938;
+margin: 10px 0 5px;
+font-size: 30px;    
+}
+
+.form span, .form input {
+font-size: 30px;
+display: flex;
+width: 100%;
+max-width: 1200px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 20px;
+background-color: #fff;
+color: #333;
+box-sizing: border-box;
+}
+
+
+.csv, .expiry_date, .short > input{
+max-width: 200px!important;
+width: 40vw!important; 
+}
+.expiry_date_input, .csv_input {
+    max-width: 200px!important;
+}
+.user_section button {
+font-size:15px;
+font-weight: bold;
+margin-top: 40px;
+padding: 10px;
+border: none;
+border-radius: 20px;
+background: #740938;
+color: white;
+cursor: pointer;
+width: fit-content;
+height: 40px;
+}
+.user_section .buttons {
+right:6%;
+bottom:10px;
+position: absolute;
+align-self: flex-end;
+display: flex;
+justify-content: flex-end;
+/* border: 2px black dotted; */
+width:140px;
+}
+@media (max-width: 827px) {
+.form .left_side {
+    width: 200px;
+}
+.user_section p {
+    font-size: 20px;
+    
+}
+.form span, .form input {
+    font-size: 20px;
+}
+.csv, .expiry_date, .short > input{
+    width: 100px!important; 
+}
+.expiry_date_input{
+    max-width: 100px!important;
+}
+.csv_input {
+    max-width: 60px!important;
+}
+}
+@media (max-width: 400px) {
+    .left_side {
+        width: 100px!important;
+    }
+    .buttons{
+        right: 1% !important;;
+    }
+}

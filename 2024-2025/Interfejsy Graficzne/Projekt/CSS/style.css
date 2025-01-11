@@ -1,0 +1,366 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  height: fit-content;
+}
+
+nav {
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  padding-top:5px;
+  height:56px;
+}
+
+.nav_div_right {
+  margin-right:15px;
+  display: flex;
+  /* border: orange;
+  border-style: dashed; */
+  align-items: center;
+  
+}
+
+.nav_div_right .bucket, .nav_div_right .language_change {
+  border: 0px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: transparent;
+}
+
+.nav_div_right .bucket img, .nav_div_right .language_change img{
+  height: 25px;
+  width: 35px;
+  margin:0;
+}
+
+.nav_div_right .logging button{
+  color:white;
+  transition: background-color 0.3s;
+  font-size:15px;
+  padding:14px;
+  border: none;
+  border-radius: 20px;
+  background: #740938;
+  color: white;
+  cursor: pointer;
+  
+}
+.toggle_menu_button{
+  margin-right:10px;
+}
+.nav_div_right .logging button:hover {
+  background: #d80665!important;
+}
+
+.nav_div_left {
+  margin-left:5px;
+  display: flex;
+  width:auto;
+  /* border: black;
+  border-style: dashed; */
+  align-items: center;
+}
+
+.nav_div_left a{
+
+    width: 90px;
+  /* border: black;
+  border-style: dashed; */
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  margin-left:20px;
+  transition: color 0.3s;
+}
+.nav_div_left a:hover{
+  color: #e6cb6b;
+}
+.nav_div_lewy{
+  margin-left: 5px;
+  margin-top:14px;
+}
+.gradient_section {
+  width:100%;
+  
+  background: linear-gradient(
+  145deg, 
+  #A00034 0%,      /* ciemna czerwień */
+  #C2185B 35%,     /* rozowy */
+  #FF0033 40%,     /* jaskrawy czerwony */
+  #FF4081 50%,     /* Intensywny różowy */
+  #FF1744 80%,     /* Czerwień z różem */
+  #A00034 100%     /* ciemna czerwien */
+  );
+  height: 100%;
+  position: fixed;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  z-index: -1; /* Gradient w tle */
+  
+}
+
+.back_arrow { 
+  position: absolute; 
+  left: 40px;
+  top:52px;  
+  font-size: 40px; 
+  cursor: pointer; 
+  color: white;
+}
+
+.back_arrow:hover {
+  color: #e6cb6b;
+} 
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: lighter;
+	margin-right:20px;
+  color:white;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.logo_MPK {
+  font-size: 24px;
+	color:white;
+	font-weight: bold;
+}
+
+.content {
+  display:flex;
+  flex: 1; /* Wypełnia dostępną przestrzeń */
+  padding: 20px;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  /* border: blue;
+  border-style: dashed; */
+}
+
+/* Tu ten prostokat na srodku */
+.div_content_container {
+  margin-top:50px;
+  display:flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  width: 70vw;
+  max-width: 1400px;
+  height: 60vh;
+  height:fit-content;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stopka */
+.footer {
+  background-color: #A00034;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+.footer a:hover{
+  color: #e6cb6b;
+}
+
+.left{
+  display:flex;
+  align-items: center;
+  /* border: black;
+  border-style: dashed; */
+}
+
+.social {
+  display: flex;
+  align-items: center;
+	
+}
+
+.social a {
+  width: 90px;
+  /* border: black;
+  border-style: dashed; */
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  margin-left:20px;
+}
+.social .icons{
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  margin-left:25px;
+}
+.social .icons img{
+  width: 30px;
+  margin-left:5px;
+  margin-top:5px;
+}
+
+.flag_uk {
+  width: 40px; 
+  height: auto; 
+  margin-right: 5px;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+/* Style for the dropdown button */
+.user_menu {
+  position: relative;
+  display: flex;
+  margin-left: 14px;
+  
+}
+.user_menu span{
+  color:white;
+  font-weight: lighter;
+  font-size:15px;
+  padding:14px;
+
+  border-radius: 20px;
+  background: #740938;
+  color: white;
+}
+
+.nav_div_right .logging .menu_options {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: #740938;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 200px;
+  border-radius: 10px;
+  margin-top: 48px;
+}
+
+
+.nav_div_right .logging .menu_options button {
+  text-align: center;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 90%;
+  background-color: #AF1740;
+  margin: 10px auto;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.logout_button{
+  font-weight: bolder;
+  background-color: #8d1636!important;
+}
+.menu_options button:hover {
+  background-color: #f00645;
+}
+
+/* Hamburger menu */
+.hamburger_menu {
+  display: none;
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 30px;
+  color: white;
+  margin-top:-4px;
+  
+}
+
+.nav_links {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  nav{
+    height: auto;
+  }
+  .hamburger_menu {
+    display: flex;
+  }
+
+  .nav_links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #A00034;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .nav_links a {
+    padding: 10px;
+    text-align: center;
+    width: 95%;
+  }
+
+  .nav_links.show {
+    display: flex;
+  }
+}
+@media (max-width: 700px) {
+  
+  .footer {
+    flex-direction: column-reverse;
+  }
+  .left{
+    margin-top: 10px;
+  }
+  .social{
+    align-self: center;
+  }
+  
+}
+@media(max-width: 510px){
+  
+  .logo, .logo_MPK {
+    font-size: 18px;
+  }
+  .nav_div_right .bucket img, .nav_div_right .language_change img{
+    height: 17px;
+    width: 20px;
+    margin:0;
+  }
+  .nav_div_right .logging button{
+    font-size:10px;
+    padding:10px;
+  }
+  .hamburger_menu {
+    font-size: 20px;
+    margin-right: 4px;
+  }
+  .user_menu span{
+    padding:8px;
+  }
+  .nav_div_right .logging .menu_options {
+    margin-top: 35px;
+  }
+}

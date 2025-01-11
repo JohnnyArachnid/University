@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../IMAGES/favicon.png">
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/inteligentny_zakup_biletu.css" />
+  <title>KrakMPK</title>
+</head>
+
+<body>
+  <!--Gradient -->
+  <div class="gradient_section"></div>
+  <div class="container">
+    <!--Nav bar -->
+		<nav>
+      <div class="nav_div_left">
+        <div class="hamburger_menu">&#9776;</div>
+        <div class="logo" data-target="../HTML/inteligentny_zakup_biletu.html">Krak<span class="logo_MPK">MPK</span></div>
+        <div class="nav_links">
+          <a href="./inteligentny_zakup_biletu.html">Inteligentny zakup biletu</a>
+          <a href="./szybki_zakup_biletu.html">Szybki zakup biletu</a>
+          <a href="./mapy_schematy.html">Mapy i schematy Krakowa</a>
+          <a href="./rozklad_jazdy.html">Rozkład jazdy</a>
+        </div>
+        
+      </div>
+      <div class="nav_div_right">
+        <button class="language_change"> <img src="../IMAGES/flaga_UK.png" alt="UK Flag" class="flag_uk" /> </button>
+        <button class="bucket" data-target="../HTML/koszyk.html"> <img src="../IMAGES/koszyk.png" alt="Koszyk" class="flag_uk" /> </button>
+        <div class="logging">
+          <button class="registration" data-target="../HTML/rejestracja.html" >Zarejestruj się</button>
+          <button class="login" data-target="../HTML/logowanie.html">Zaloguj się</button>
+        </div>
+      </div>
+    </nav>
+    <!-- Główna zawartość tu bd wszystko-->
+    <div class="content">
+      <!-- Tu ten prostokat na srodku -->
+      <div class="div_content_container">
+        <!-- Główny content się pojawi tutaj dynamicznie -->
+      </div>
+      
+      <!-- Date Modal -->
+      <div id="date-modal" class="modal">
+        <div class="modal-content">
+          <h3 id="date-modal-description">Wybierz Datę</h3>
+          <input type="date" id="date-picker" />
+          <button type="button" id="close-date-modal">Zamknij</button>
+        </div>
+      </div>
+      
+      <!-- Time Modal -->
+      <div id="time-modal" class="modal">
+        <div class="modal-content">
+          <h3 id="time-modal-description">Wybierz Godzinę</h3>
+          <input type="time" id="time-picker" step="1" />
+          <button type="button" id="close-time-modal">Zamknij</button>
+        </div>
+      </div>
+    </div>
+    <!-- Stopka -->
+    <div class="footer">
+      <div class="left">
+        <div class="logo" data-target="../HTML/inteligentny_zakup_biletu.html">Krak<span class="logo_MPK">MPK</span></div>
+        <div>©2024 KrakMPK. All rights reserved</div>
+      </div>
+        <div class="social">
+          <a href="./polityka_prywatnosci.html">Polityka prywatności</a>
+          <a href="./skontaktuj_sie_z_nami.html">Skontaktuj się z nami</a>
+          <a href="https://x.com/?lang=pl&mx=2" class="icons" target="_blank"><img src="../IMAGES/twitter.png" alt="X" class="flag_uk" /></a>
+          <a href="https://www.instagram.com/" class="icons" target="_blank"><img src="../IMAGES/instagram.png" alt="Instagram" class="flag_uk" /></a>
+          <a href="https://www.facebook.com/" class="icons" target="_blank" target="_blank"><img src="../IMAGES/facebook.png" alt="Facebook" class="flag_uk" /></a>
+        </div>
+    </div>
+  </div>
+  
+  <script src="../JS/consts.js"></script>
+  <script src="../JS/scripts.js"></script>
+  <script src="../JS/dynamiczny_content.js"></script>
+  <script src="../JS/nawigacja_na_stronie.js"></script>
+  <script src="../JS/language.js"></script>
+  <script src="../JS/inteligentny_zakup_biletu.js"></script>
+</body>
+
+</html>

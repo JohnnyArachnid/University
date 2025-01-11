@@ -1,0 +1,13 @@
+.content {
+    flex-direction: column;
+}
+.content p{
+    color: white;
+    font-size: 50px;
+}
+.div_content_container {
+    color: #740938;
+    font-size: large;
+    border: 1px solid black;
+    padding-left: 40px;
+}

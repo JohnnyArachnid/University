@@ -1,0 +1,131 @@
+.div_content_container{
+    max-width: 700px;
+    justify-content: center;
+    min-width: 380px;
+}
+.ticket-favourite-container {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e30b5c, #ff677d);
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+  }
+  
+  .description-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .description-section h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .action-buttons button {
+    background-color: #fff;
+    color: #f00645;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .action-buttons button:hover {
+    background-color: #ffccd5;
+  }
+  
+  .tickets-display {
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tickets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-height: 440px;
+    overflow-y: auto;
+  }
+  
+  .ticket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 28px;
+    padding: 15px;
+  }
+  .ticket-info p:first-child{
+    margin-bottom:15px;
+  }
+  .ticket-info p {
+    margin: 5px 0;
+  }
+  
+  .ticket-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .ticket-actions button {
+    background-color: #f00645;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ticket-actions button:hover {
+    background-color: #ff677d;
+  }
+  
+  .ticket-actions span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  #reset-tickets,
+  #add-to-cart,
+  #proceed-to-payment {
+    background-color: #f00645;;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #reset-tickets:disabled,
+  #add-to-cart:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  #reset-tickets:hover:not(:disabled),
+  #add-to-cart:hover:not(:disabled),
+  #proceed-to-payment:hover {
+    background-color: #ff677d;
+  }
+  
