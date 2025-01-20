@@ -1,0 +1,72 @@
+<%- include('./head', { style: style, currentLang: currentLang, title_pl: title_pl, title_ang: title_ang }) %>
+
+<body>
+    <div class="container-main container d-flex flex-column px-0 border border-dark border-5 rounded-4 bg-light bg-gradient roboto-regular">
+        <header class="d-flex align-items-center p-3 border-bottom border-danger border-3 gap-3">
+            <div class="flex-grow-1">
+                <h1 class="mb-1 bangers-regular">MARVELOUS COMIC BLOG</h1>
+                <p class="mb-0 bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Komiksowy blog na temat uniwersum marvela
+                    <% } else if (currentLang === 'en') { %>
+                        A comic book blog about the Marvel universe
+                    <% } %>
+                </p>
+            </div>
+            <a href="/">
+                <img src="/photos/logo.png" alt="Logo" class="img-fluid logo-image">
+            </a>
+            <div class="d-flex gap-2">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a href="/setlang/pl" class="nav-link <%= currentLang === 'pl' ? 'active bg-danger' : ''%> bangers-regular">PL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/setlang/en" class="nav-link <%= currentLang === 'en' ? 'active bg-danger' : ''%> bangers-regular">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <nav class="align-items-center p-3 border-bottom border-danger border-3 bangers-regular">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a href="/" class="nav-link <%= style === 'index' ? 'active bg-danger bg-gradient' : ''%>">Blog 📖</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/subpages/comic_book_announcement/1" class="nav-link <%= style === 'comic_book_announcement' ? 'active bg-danger bg-gradient' : ''%>">
+                        <% if (currentLang === 'pl') { %>
+                            Zapowiedzi Komiksowe 📒
+                        <% } else if (currentLang === 'en') { %>
+                            Comic Book Announcements 📒
+                        <% } %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/subpages/characters_wiki" class="nav-link <%= style === 'characters_wiki' ? 'active bg-danger bg-gradient' : ''%>">
+                        <% if (currentLang === 'pl') { %>
+                            Wiki Postaci 📰
+                        <% } else if (currentLang === 'en') { %>
+                            Characters Wiki 📰
+                        <% } %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/subpages/about_the_site" class="nav-link <%= style === 'about_the_site' ? 'active bg-danger bg-gradient' : ''%>">
+                        <% if (currentLang === 'pl') { %>
+                            O Stronie 🧑
+                        <% } else if (currentLang === 'en') { %>
+                            About the Site 🧑
+                        <% } %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/subpages/contact" class="nav-link <%= style === 'contact' ? 'active bg-danger bg-gradient' : ''%>">
+                        <% if (currentLang === 'pl') { %>
+                            Kontakt ☎️
+                        <% } else if (currentLang === 'en') { %>
+                            Contact ☎️
+                        <% } %>
+                    </a>
+                </li>
+            </ul>
+        </nav>

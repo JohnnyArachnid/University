@@ -1,0 +1,11 @@
+.breadcrumb-item .link {
+    transition: background-color 0.3s ease;
+}
+
+.breadcrumb-item .link:hover {
+    color: darkred!important;
+}
+
+.breadcrumb-item .link:active {
+    color: black!important;
+}

@@ -1,0 +1,74 @@
+<%- include('../partials/header_single', { style: 'single_content', currentLang: currentLang, title_pl: `Marvel Comic Blog - Article ${article.id}`, title_ang: `Marvel Comic Blog - Article ${article.id}` }) %>
+
+<main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="/" class="link text-danger bangers-regular"><%= currentLang === 'pl' ? 'Artykuł' : 'Articles' %></a></li>
+            <li class="breadcrumb-item active text-danger-emphasis bangers-regular" aria-current="page"><%= currentLang === 'pl' ? `Artykuł ${article.id}` : `Article ${article.id}` %></li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-12 mb-3">
+            <img src="/photos/article<%= article.number %>.jpg" class="rounded img-fluid mb-3 w-100" alt="Blog 1">
+            <div class="card text-bg-danger">
+                <div class="card-header">
+                    <small><%= article.creation_date %></small>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= currentLang === 'pl' ? article.title : article.title_ang %></h5>
+                    <div>
+                        <% 
+                        const getTagClass = (tag) => {
+                            switch (tag.toLowerCase()) {
+                                case 'popularne':
+                                case 'popular':
+                                    return 'bg-primary';
+                                case 'komiksy':
+                                case 'comics':
+                                    return 'bg-danger';
+                                case 'gry':
+                                case 'games':
+                                    return 'bg-warning';
+                                case 'filmy':
+                                case 'films':
+                                    return 'bg-info';
+                                case 'newsy':
+                                case 'news':
+                                    return 'bg-black';
+                                case 'recenzje':
+                                case 'reviews':
+                                    return 'bg-dark';
+                                case 'plotki':
+                                case 'rumours':
+                                    return 'bg-secondary';
+                                default:
+                                    return 'bg-primary';
+                            }
+                        };
+                        %>
+
+                        <% if (currentLang === 'pl') { %>
+                            <% article.tag.forEach(tag => { %>
+                                <span class="badge <%= getTagClass(tag) %> bg-gradient"><%= tag %></span>
+                            <% }); %>
+                        <% } else { %>
+                            <% article.tag_ang.forEach(tag => { %>
+                                <span class="badge <%= getTagClass(tag) %> bg-gradient"><%= tag %></span>
+                            <% }); %>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small><%= currentLang === 'pl' ? `Przez ${article.author}` : `By ${article.author}` %></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <p>
+                <%- formattedContent %>
+            </p>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>

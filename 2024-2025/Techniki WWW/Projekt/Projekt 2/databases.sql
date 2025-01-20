@@ -1,0 +1,57 @@
+CREATE DATABASE comicblogproject;
+
+USE comicblogproject;
+
+CREATE TABLE article (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL UNIQUE,
+    title_ang VARCHAR(255) NOT NULL UNIQUE,
+    tag TEXT,
+    tag_ang TEXT,
+    content TEXT NOT NULL,
+    content_ang TEXT NOT NULL,
+    author ENUM('Administrator', 'Moderator') NOT NULL,
+    number INT NOT NULL,
+    creation_date DATE NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comicannouncement (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    title_ang VARCHAR(255) NOT NULL,
+    release_date DATE NOT NULL,
+    expectations INT NOT NULL CHECK (expectations >= 0 AND expectations <= 100),
+    number INT NOT NULL,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE characterwiki (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  hero_name VARCHAR(255) NOT NULL,
+  hero_name_ang VARCHAR(255) NOT NULL,
+  short_description VARCHAR(255) NOT NULL,
+  short_description_ang VARCHAR(255) NOT NULL,
+  real_name VARCHAR(255) NOT NULL,
+  age INT NOT NULL,
+  description TEXT NOT NULL,
+  description_ang TEXT NOT NULL,
+  abbilities TEXT NOT NULL,
+  abbilities_ang TEXT NOT NULL,
+  number INT NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE contactmessages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(15) NOT NULL,
+  message TEXT NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

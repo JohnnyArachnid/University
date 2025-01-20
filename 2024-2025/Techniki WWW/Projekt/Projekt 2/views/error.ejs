@@ -1,0 +1,22 @@
+<%- include('partials/header_single', { style: 'error', currentLang: currentLang, title_pl: 'Marvel Comic Blog - Strona Błędu', title_ang: 'Marvel Comic Blog - Error Page' }) %>
+
+<main class="container-fluid flex-grow-1 d-flex justify-content-center align-items-center p-3 border-bottom border-danger border-3">
+    <div class="text-center p-4 rounded-3 bangers-regular text-bg-danger">
+        <h2>
+            <% if (currentLang === 'pl') { %>
+                Tytuł Błędu: <%= title %>
+            <% } else if (currentLang === 'en') { %>
+                Error's Title: <%= title %>
+            <% } %>
+        </h2>
+        <h2>
+            <% if (currentLang === 'pl') { %>
+                Status Błędu: <%= status %>
+            <% } else if (currentLang === 'en') { %>
+                Error's Status: <%= status %>
+            <% } %>
+        </h2>
+    </div>
+</main>
+
+<%- include('partials/footer', { currentLang: currentLang }) %>

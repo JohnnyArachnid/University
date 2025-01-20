@@ -1,0 +1,29 @@
+<%- include('./head', { style: style, currentLang: currentLang, title_pl: title_pl, title_ang: title_ang }) %>
+
+<body>
+    <div class="container-main container d-flex flex-column px-0 border border-dark border-5 rounded-4 bg-light bg-gradient roboto-regular">
+        <header class="d-flex align-items-center p-3 border-bottom border-danger border-3 gap-3">
+            <div class="flex-grow-1">
+                <h1 class="mb-1 bangers-regular">MARVELOUS COMIC BLOG</h1>
+                <p class="mb-0 bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Komiksowy blog na temat uniwersum marvela
+                    <% } else if (currentLang === 'en') { %>
+                        A comic book blog about the Marvel universe
+                    <% } %>
+                </p>
+            </div>
+            <a href="/">
+                <img src="/photos/logo.png" alt="Logo" class="img-fluid logo-image">
+            </a>
+            <div class="d-flex gap-2">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a href="/setlang/pl" class="nav-link <%= currentLang === 'pl' ? 'active bg-danger' : ''%> bangers-regular">PL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/setlang/en" class="nav-link <%= currentLang === 'en' ? 'active bg-danger' : ''%> bangers-regular">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </header>

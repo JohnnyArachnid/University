@@ -1,0 +1,59 @@
+td .button {
+    transition: background-color 0.3s ease;
+}
+
+td .button:hover {
+    background-color: darkred!important;
+}
+
+td .button:active {
+    background-color: black!important;
+}
+
+.pagination .page-item.active .page-link {
+    background: darkred;
+    color: white;
+    box-shadow: none;
+    border: 1px solid black;
+}
+
+.pagination .page-item.active .page-link:hover {
+    background: darkred;
+    color: white;
+    border: 1px solid black;
+}
+
+.pagination .page-item .page-link {
+    background-color: #F9D7DA;
+    color: black;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    transition: background-color 0.3s;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: rgb(222, 75, 75);
+    color: white;
+    border: 1px solid black;
+}
+
+.pagination .page-item .page-link:active {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+.pagination .page-item.disabled .page-link:hover {
+    background-color: #f8f9fa;
+}
+
+.close-button {
+    box-shadow: none!important;
+}
+

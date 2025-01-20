@@ -1,0 +1,54 @@
+<%- include('../partials/header_main', { style: 'characters_wiki', currentLang: currentLang, title_pl: 'Marvel Comic Blog - Wiki Postaci', title_ang: 'Marvel Comic Blog - Characters Wiki' }) %>
+
+<main class="container-fluid flex-grow-1 d-flex justify-content-center align-items-center p-3 border-bottom border-danger border-3">
+    <% if (noCharactersMessage) { %>
+        <p class="no-data bangers-regular text-danger"><%= noCharactersMessage %></p>
+    <% } else { %>
+        <div id="carouselPostacie" class="carousel slide mx-auto">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselPostacie" data-bs-slide-to="0" class="active mb-2" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselPostacie" data-bs-slide-to="1" class="mb-2" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselPostacie" data-bs-slide-to="2" class="mb-2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselPostacie" data-bs-slide-to="3" class="mb-2" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselPostacie" data-bs-slide-to="4" class="mb-2" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <% characters.forEach((character, index) => { %>
+                    <div class="carousel-item <%= index === 0 ? 'active' : '' %> border border-dark border-3 rounded-3 bg-danger bg-gradient">
+                        <a href="/others/character/<%= character.id %>">
+                            <img src="/photos/herowiki<%= character.number %>.jpg" class="d-block w-100 img-fixed-size rounded" alt="Character <%= character.number %>">
+                            <div class="carousel-caption d-none d-md-block bangers-regular text-bg-danger">
+                                <h5>
+                                    <% if (currentLang === 'pl') { %>
+                                        <%= character.hero_name %>
+                                    <% } else if (currentLang === 'en') { %>
+                                        <%= character.hero_name_ang %>
+                                    <% } %>
+                                </h5>
+                                <p>
+                                    <% if (currentLang === 'pl') { %>
+                                        <%= character.short_description %>
+                                    <% } else if (currentLang === 'en') { %>
+                                        <%= character.short_description_ang %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                <% }); %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPostacie" data-bs-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="red" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselPostacie" data-bs-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="red" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+            </button>
+        </div>
+    <% } %>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>

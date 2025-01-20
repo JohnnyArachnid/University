@@ -1,0 +1,46 @@
+<%- include('../partials/header_main', { style: 'about_the_site', currentLang: currentLang, title_pl: 'Marvel Comic Blog - O Stronie', title_ang: 'Marvel Comic Blog - About The Site' }) %>
+
+<main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3">
+    <h2 class="mb-1 bangers-regular text-danger">MARVELOUS COMIC BLOG</h2>
+    <p class="mb-2 bangers-regular text-danger">
+        <% if (currentLang === 'pl') { %>
+            Komiksowy blog na temat uniwersum marvela
+        <% } else if (currentLang === 'en') { %>
+            A comic book blog about the Marvel universe
+        <% } %>
+    </p>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-12 mb-3">
+            <iframe class="border border-dark border-3 rounded-3 bg-light bg-gradient w-100 film" 
+                    src="https://www.youtube.com/embed/vmT3dk8099w?si=XTTBZ_3yFF7B5Xkq" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <p class="mb-1">
+                <% if (currentLang === 'pl') { %>
+                    Witamy na naszym blogu, który jest poświęcony fascynującemu światu komiksów Marvela, z naciskiem na te wydawane w Polsce od lat 90-tych. Jako prawdziwi pasjonaci tego uniwersum, od lat zgłębiamy historię bohaterów i złoczyńców, którzy na stałe wpisali się w popkulturę. Nasz blog to miejsce, gdzie dzielimy się naszą wiedzą, spostrzeżeniami oraz recenzjami komiksów, które zafascynowały nas przez wszystkie te lata.
+                <% } else if (currentLang === 'en') { %>
+                    Welcome to our blog, which is dedicated to the fascinating world of Marvel comics, with an emphasis on those published in Poland since the 1990s. As true enthusiasts of this universe, for years we have been exploring the history of heroes and villains who have become a permanent part of pop culture. Our blog is a place where we share our knowledge, observations and reviews of comics that have fascinated us over the years.
+                <% } %>
+            </p>
+            <p class="mb-1">
+                <% if (currentLang === 'pl') { %>
+                    Jesteśmy czytelnikami, którzy od lat kolekcjonują i śledzą rozwój fabuł oraz postaci Marvela, i teraz chcemy przekazać naszą pasję oraz doświadczenie kolejnym pokoleniom fanów. Staramy się dostarczać wartościowe informacje zarówno dla nowych, jak i długoletnich fanów komiksów, oferując recenzje, analizy i artykuły na temat klasyków, jak i nowości, które pojawiły się na polskim rynku. Dzięki naszemu blogowi, chcemy szerzyć wiedzę o komiksach Marvela i przybliżyć tę niesamowitą historię tym, którzy jeszcze nie mieli okazji jej poznać.
+                <% } else if (currentLang === 'en') { %>
+                    We are readers who have been collecting and following the development of Marvel storylines and characters for years, and now we want to pass on our passion and experience to the next generations of fans. We strive to provide valuable information for both new and long-time comic book fans, offering reviews, analyzes and articles about classics and new products that have appeared on the Polish market. Thanks to our blog, we want to spread knowledge about Marvel comics and bring this amazing story closer to those who have not yet had the opportunity to know it.
+                <% } %>
+                </p>
+            <p>
+                <% if (currentLang === 'pl') { %>
+                    Wspólnie z naszą społecznością fanów, tworzymy przestrzeń, w której pasja do komiksów łączy się z codziennym życiem, a każdy nowy wpis jest okazją do dzielenia się spostrzeżeniami i pomysłami na temat tego, co sprawia, że Marvel jest tak wyjątkowy. Dołącz do naszej komiksowej podróży i pozwól, by ta historia ożyła na Twoich oczach!
+                <% } else if (currentLang === 'en') { %>
+                    Together with our fan community, we create a space where passion for comics meets everyday life, and each new entry is an opportunity to share observations and ideas about what makes Marvel so special. Join our comic book journey and let this story come to life before your eyes!      
+                <% } %>
+            </p>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>

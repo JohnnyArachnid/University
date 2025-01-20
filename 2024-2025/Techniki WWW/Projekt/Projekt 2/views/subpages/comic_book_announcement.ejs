@@ -1,0 +1,134 @@
+<%- include('../partials/header_main', { style: 'comic_book_announcement', currentLang: currentLang, title_pl: `Marvel Comic Blog - Zapowiedzi Komiksowe ${currentPage}`, title_ang: `Marvel Comic Blog - Comic Book Announcements ${currentPage}` }) %>
+
+<main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3">
+    <% if (noComicsMessage) { %>
+        <p class="no-data bangers-regular text-danger"><%= noComicsMessage %></p>
+    <% } else { %>
+        <table class="table table-light table-bordered table-responsive">
+            <thead class="table-danger">
+            <tr>
+                <th scope="col" class="bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Nazwa Komiksu
+                    <% } else if (currentLang === 'en') { %>
+                        Comic Name
+                    <% } %>
+                </th>
+                <th scope="col" class="bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Data Wydania
+                    <% } else if (currentLang === 'en') { %>
+                        Release Date
+                    <% } %>
+                </th>
+                <th scope="col" class="bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Oczekiwania
+                    <% } else if (currentLang === 'en') { %>
+                        Expectations
+                    <% } %>
+                </th>
+                <th scope="col" class="bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Podgląd Okładki Komiksu
+                    <% } else if (currentLang === 'en') { %>
+                        Comic Cover Preview
+                    <% } %>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <% comic_book_announcement.forEach(comic_book_announcement => { %>
+                    <tr class="text-center align-middle">
+                        <th scope="row">
+                            <%= currentLang === 'pl' ? comic_book_announcement.title : comic_book_announcement.title_ang %>
+                        </th>
+                        <td>
+                            <%= comic_book_announcement.release_date %>
+                        </td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Comic <%= comic_book_announcement.number %>" aria-valuenow="<%= comic_book_announcement.expectations %>" aria-valuemin="0" aria-valuemax="100"> 
+                                <div class="progress-bar bg-danger" style="width: <%= comic_book_announcement.expectations %>%;">
+                                    <%= comic_book_announcement.expectations %>%
+                                </div> 
+                            </div>                                          
+                        </td>
+                        <td>
+                            <button type="button" class="button btn btn-danger" data-bs-toggle="modal" data-bs-target="#comic_book_announcement<%= comic_book_announcement.number %>">
+                                📒
+                            </button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <nav aria-label="Pagination">
+            <ul class="pagination justify-content-end">
+                <li class="page-item <%= !prevPage ? 'disabled' : '' %>">
+                    <a class="page-link bangers-regular" href="<%= prevPage ? '/subpages/comic_book_announcement/' + prevPage : '#' %>">
+                        &laquo;
+                        <% if (currentLang === 'pl') { %>
+                            Pierwszy
+                        <% } else if (currentLang === 'en') { %>
+                            First
+                        <% } %>
+                    </a>
+                </li>
+                <li class="page-item <%= !prevPage ? 'disabled' : '' %>">
+                    <a class="page-link bangers-regular" href="<%= prevPage ? '/subpages/comic_book_announcement/' + prevPage : '#' %>">
+                        &lt;
+                        <% if (currentLang === 'pl') { %>
+                            Poprzedni
+                        <% } else if (currentLang === 'en') { %>
+                            Previous
+                        <% } %>
+                    </a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link bangers-regular" href="#">
+                        <%= currentPage %>
+                    </a>
+                </li>
+                <li class="page-item <%= !nextPage ? 'disabled' : '' %>">
+                    <a class="page-link bangers-regular" href="<%= nextPage ? '/subpages/comic_book_announcement/' + nextPage : '#' %>">
+                        <% if (currentLang === 'pl') { %>
+                            Następny
+                        <% } else if (currentLang === 'en') { %>
+                            Next
+                        <% } %> 
+                        &gt;
+                    </a>
+                </li>
+                <li class="page-item <%= !nextPage ? 'disabled' : '' %>">
+                    <a class="page-link bangers-regular" href="<%= nextPage ? '/subpages/comic_book_announcement/' + totalPages : '#' %>">
+                        <% if (currentLang === 'pl') { %>
+                            Ostatni
+                        <% } else if (currentLang === 'en') { %>
+                            Last
+                        <% } %>
+                        &raquo;
+                    </a>
+                </li>
+            </ul>
+        </nav>              
+        <% comic_book_announcement.forEach(comic_book_announcement => { %>
+            <div class="modal fade" id="comic_book_announcement<%= comic_book_announcement.number %>" tabindex="-1" aria-labelledby="Comic Book Announcement <%= comic_book_announcement.number %> 1" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content bg-light bg-gradient">
+                    <div class="modal-header">
+                    <h5 class="modal-title bangers-regular text-danger">
+                        <%= currentLang === 'pl' ? comic_book_announcement.title : comic_book_announcement.title_ang %>
+                    </h5>
+                    <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <img src="/photos/comicannouncement<%= comic_book_announcement.number %>.webp" alt="Comic Book Announcement <%= comic_book_announcement.number %> 1" class="img-fluid h-100" />
+                    </div>
+                </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>

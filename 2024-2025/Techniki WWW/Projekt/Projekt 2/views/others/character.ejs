@@ -1,0 +1,44 @@
+<%- include('../partials/header_single', { style: 'single_content', currentLang: currentLang, title_pl: `Marvel Comic Blog - Postać ${character.id}`, title_ang: `Marvel Comic Blog - Character ${character.id}` }) %>
+
+<main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="/subpages/characters_wiki" class="link text-danger bangers-regular"><%= currentLang === 'pl' ? 'Wiki Postaci' : 'Characters Wiki' %></a></li>
+            <li class="breadcrumb-item active text-danger-emphasis bangers-regular" aria-current="page"><%= currentLang === 'pl' ? `Postać ${character.id}` : `Character ${character.id}` %></li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-12 mb-3">
+            <img src="/photos/herowiki<%= character.number %>.jpg" class="rounded img-fluid mb-3 w-100" alt="Character <%= character.number %>">
+            <div class="card text-bg-danger">
+                <div class="card-header">
+                    <small><%= character.real_name %></small>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= currentLang === 'pl' ? character.hero_name : character.hero_name_ang %></h5>
+                </div>
+                <div class="card-footer">
+                    <small><%= currentLang === 'pl' ? `Około ${character.age} lat` : `About ${character.age} years` %></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <h2 class="bangers-regular mb-3"><%= currentLang === 'pl' ? character.hero_name : character.hero_name_ang %></h2>
+            <p><%= currentLang === 'pl' ? character.description : character.description_ang %></p>
+            <h2 class="bangers-regular mb-3"><%= currentLang === 'pl' ? 'Umiejętności' : 'Abilities' %></h2>
+            <ul class="list-group">
+                <% if (currentLang === 'pl') { %>
+                    <% character.abbilities.forEach((ability, index) => { %>
+                        <li class="list-group-item <%= index % 2 == 0 ? 'list-group-item-danger' : 'list-group-item-light' %>"><%= ability %></li>
+                    <% }); %>
+                <% } else { %>
+                    <% character.abbilities_ang.forEach((ability, index) => { %>
+                        <li class="list-group-item <%= index % 2 == 0 ? 'list-group-item-danger' : 'list-group-item-light' %>"><%= ability %></li>
+                    <% }); %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>

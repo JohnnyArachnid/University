@@ -1,0 +1,235 @@
+<%- include('partials/header_main', { style: 'index', currentLang: currentLang, title_pl: 'Marvel Comic Blog - Strona Główna', title_ang: 'Marvel Comic Blog - Main Page' }) %>
+
+<main class="container-fluid flex-grow-1 p-3 border-bottom border-danger border-3"> 
+    <div class="filter-section p-3 border border-danger border-3 rounded-3 bg-light bg-gradient mb-4">
+        <h2 class="bangers-regular text-danger">
+            <%= currentLang === 'pl' ? 'Filtruj artykuły' : 'Filter articles' %>
+        </h2>
+        <form class="filter-form d-flex flex-wrap align-items-center gap-3" action="/" method="POST">
+            <div class="form-group">
+                <label for="filter-title" class="form-label bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Nazwa artykułu
+                    <% } else if (currentLang === 'en') { %>
+                        Article's name
+                    <% } %>
+                </label>
+                <input type="text" id="filter-title" name="title" class="form-control inputColor" placeholder="<% if (currentLang === 'pl') { %>Wpisz nazwę artykułu<% } else if (currentLang === 'en') { %>Enter the name of the article<% } %>" value="<%= values.title || '' %>">
+            </div>
+            <div class="form-group">
+                <label class="form-label bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Autor
+                    <% } else if (currentLang === 'en') { %>
+                        Author
+                    <% } %>
+                </label>
+                <div class="d-flex flex-column">
+                    <div class="form-check">
+                        <input type="radio" id="author-all" name="author" class="form-check-input checkboxColor" value="all" <%= values.author === 'all' ? 'checked' : '' %>>
+                        <label for="author-all" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Wszyscy
+                            <% } else if (currentLang === 'en') { %>
+                                All
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="author-admin" name="author" class="form-check-input checkboxColor" value="Administrator" <%= values.author === 'Administrator' ? 'checked' : '' %>>
+                        <label for="author-admin" class="form-check-label">Administrator</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="author-moderator" name="author" class="form-check-input checkboxColor" value="Moderator" <%= values.author === 'Moderator' ? 'checked' : '' %>>
+                        <label for="author-moderator" class="form-check-label">Moderator</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Tagi
+                    <% } else if (currentLang === 'en') { %>
+                        Tags
+                    <% } %>
+                </label>
+                <div class="tags d-flex flex-wrap gap-2">
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-popularne" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Popularne<% } else if (currentLang === 'en') { %>Popular<% } %>" <%= values.tags && (values.tags.includes('Popularne') || values.tags.includes('Popular')) ? 'checked' : '' %>>
+                        <label for="tag-popularne" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Popularne
+                            <% } else if (currentLang === 'en') { %>
+                                Popular
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-komiksy" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Komiksy<% } else if (currentLang === 'en') { %>Comics<% } %>" <%= values.tags && (values.tags.includes('Komiksy') || values.tags.includes('Comics')) ? 'checked' : '' %>>
+                        <label for="tag-komiksy" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Komiksy
+                            <% } else if (currentLang === 'en') { %>
+                                Comics
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-gry" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Gry<% } else if (currentLang === 'en') { %>Games<% } %>" <%= values.tags && (values.tags.includes('Gry') || values.tags.includes('Games')) ? 'checked' : '' %>>
+                        <label for="tag-gry" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Gry
+                            <% } else if (currentLang === 'en') { %>
+                                Games
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-filmy" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Filmy<% } else if (currentLang === 'en') { %>Films<% } %>" <%= values.tags && (values.tags.includes('Filmy') || values.tags.includes('Films')) ? 'checked' : '' %>>
+                        <label for="tag-filmy" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Filmy
+                            <% } else if (currentLang === 'en') { %>
+                                Films
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-newsy" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Newsy<% } else if (currentLang === 'en') { %>News<% } %>" <%= values.tags && (values.tags.includes('Newsy') || values.tags.includes('News')) ? 'checked' : '' %>>
+                        <label for="tag-newsy" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Newsy
+                            <% } else if (currentLang === 'en') { %>
+                                News
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-recenzje" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Recenzje<% } else if (currentLang === 'en') { %>Reviews<% } %>" <%= values.tags && (values.tags.includes('Recenzje') || values.tags.includes('Reviews')) ? 'checked' : '' %>>
+                        <label for="tag-recenzje" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Recenzje
+                            <% } else if (currentLang === 'en') { %>
+                                Reviews
+                            <% } %>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tag-plotki" name="tags[]" class="form-check-input checkboxColor" value="<% if (currentLang === 'pl') { %>Plotki<% } else if (currentLang === 'en') { %>Rumours<% } %>" <%= values.tags && (values.tags.includes('Plotki') || values.tags.includes('Rumours')) ? 'checked' : '' %>>
+                        <label for="tag-plotki" class="form-check-label">
+                            <% if (currentLang === 'pl') { %>
+                                Plotki
+                            <% } else if (currentLang === 'en') { %>
+                                Rumours
+                            <% } %>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="filter-date-start" class="form-label bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Data od
+                    <% } else if (currentLang === 'en') { %>
+                        Date from
+                    <% } %>
+                </label>
+                <input type="date" id="filter-date-start" name="start_date" class="form-control inputColor" value="<%= values.start_date || '' %>">
+            </div>
+            <div class="form-group">
+                <label for="filter-date-end" class="form-label bangers-regular">
+                    <% if (currentLang === 'pl') { %>
+                        Data do
+                    <% } else if (currentLang === 'en') { %>
+                        Date to
+                    <% } %>
+                </label>
+                <input type="date" id="filter-date-end" name="end_date" class="form-control inputColor" value="<%= values.end_date || '' %>">
+            </div>
+            <div class="w-100">
+                <button type="submit" class="btn btn-danger w-100 bangers-regular">
+                    <%= currentLang === 'pl' ? 'Filtruj' : 'Filter' %>
+                </button>
+                <button type="reset" class="btn btn-danger w-100 bangers-regular mt-2 resetButtonClass">
+                    <%= currentLang === 'pl' ? 'Resetuj Filtry' : 'Reset Filters' %>
+                </button>
+            </div>
+        </form>
+        <button class="btn btn-danger w-100 bangers-regular mt-2 resetButtonClass">
+            <%= currentLang === 'pl' ? 'Resetuj Artykuły' : 'Reset Articles' %>
+        </button>
+    </div>     
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% if (noArticlesMessage) { %>
+                    <p class="no-data bangers-regular text-danger"><%= noArticlesMessage %></p>
+            <% } else { %>
+                <% articles.forEach(article => { %>
+                    <a href="/others/article/<%= article.id %>" class="text-decoration-none"> 
+                        <div class="card h-100">
+                            <h5 class="card-header bg-danger bg-gradient bangers-regular text-light">
+                                <%= article.creation_date %>
+                            </h5> 
+                            <div class="card-photo">
+                                <img src="/photos/article<%= article.number %>.jpg" class="card-img-top" alt="Article <%= article.number %>"> 
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-evenly">
+                                <h5 class="card-title">
+                                    <%= currentLang === 'pl' ? article.title : article.title_ang %>
+                                </h5>
+                                <p class="card-text">
+                                    <% 
+                                    const getTagClass = (tag) => {
+                                        switch (tag.toLowerCase()) {
+                                            case 'popularne':
+                                            case 'popular':
+                                                return 'bg-primary';
+                                            case 'komiksy':
+                                            case 'comics':
+                                                return 'bg-danger';
+                                            case 'gry':
+                                            case 'games':
+                                                return 'bg-warning';
+                                            case 'filmy':
+                                            case 'films':
+                                                return 'bg-info';
+                                            case 'newsy':
+                                            case 'news':
+                                                return 'bg-black';
+                                            case 'recenzje':
+                                            case 'reviews':
+                                                return 'bg-dark';
+                                            case 'plotki':
+                                            case 'rumours':
+                                                return 'bg-secondary';
+                                            default:
+                                                return 'bg-primary';
+                                        }
+                                    };
+                                    %>
+        
+                                    <% if (currentLang === 'pl') { %>
+                                        <% article.tag.forEach(tag => { %>
+                                            <span class="badge <%= getTagClass(tag) %> bg-gradient"><%= tag %></span>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <% article.tag_ang.forEach(tag => { %>
+                                            <span class="badge <%= getTagClass(tag) %> bg-gradient"><%= tag %></span>
+                                        <% }); %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">
+                                    <%= currentLang === 'pl' ? `Przez ${article.author}` : `By ${article.author}` %>
+                                </small>
+                            </div>
+                        </div>
+                    </a>
+                <% }); %>        
+        </div>
+    <% } %>
+</main>
+
+<script src="/js/index.js"></script>
+
+<%- include('partials/footer', { currentLang: currentLang }) %>

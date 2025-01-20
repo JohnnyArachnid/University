@@ -1,0 +1,14 @@
+#carouselPostacie {
+    width: 400px;
+    height: 500px;
+}
+
+.img-fixed-size {
+    max-height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.img-fixed-size:hover {
+    transform: scale(0.95);
+}

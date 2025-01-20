@@ -1,0 +1,136 @@
+<%- include('../partials/header_main', { style: 'contact', currentLang: currentLang, title_pl: 'Marvel Comic Blog - Kontakt', title_ang: 'Marvel Comic Blog - Contact' }) %>
+
+<main class="container-fluid flex-grow-1 d-flex justify-content-center align-items-center p-3 border-bottom border-danger border-3">
+    <% if (success) { %>
+        <div class="alert alert-success bangers-regular" role="alert">
+            <% if (currentLang === 'pl') { %>
+                Formularz został wysłany pomyślnie. Dziękujemy za kontakt!
+            <% } else if (currentLang === 'en') { %>
+                The form has been submitted successfully. Thank you for reaching out!
+            <% } %>
+        </div>
+    <% } else { %>    
+        <div class="row w-100">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="left_form text-center text-lg-start">
+                    <h3>
+                        <% if (currentLang === 'pl') { %>
+                            Masz jakieś pytania?
+                        <% } else if (currentLang === 'en') { %>
+                            Do you have any questions?
+                        <% } %>
+                    </h3>
+                    <h1>
+                        <% if (currentLang === 'pl') { %>
+                            Skontaktuj się z nami
+                        <% } else if (currentLang === 'en') { %>
+                            Contact us
+                        <% } %>
+                    </h1>
+                    <p>+32 XXX XXX XXX</p>
+                    <p>xxxxxx@gmail.com</p>
+                    <p>
+                        <% if (currentLang === 'pl') { %>
+                            Kraków
+                        <% } else if (currentLang === 'en') { %>
+                            Cracow
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <form class="contact_form" action="/subpages/contact" method="POST">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label bangers-regular text-danger">
+                            <% if (currentLang === 'pl') { %>
+                                Imię:
+                            <% } else if (currentLang === 'en') { %>
+                                First Name:
+                            <% } %>
+                        </label>
+                        <input id="firstName" type="text" name="first_name" value="<%= values.first_name || '' %>" class="form-control roboto-regular" placeholder="<%= currentLang === 'pl' ? 'Podaj swoję imię' : 'Enter your first name'%>">
+                        <div class="error text-danger">
+                            <% if (errors.first_name) { %>
+                                <%= currentLang === 'pl' ? errors.first_name : errors.first_name_ang %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label bangers-regular text-danger">
+                            <% if (currentLang === 'pl') { %>
+                                Nazwisko:
+                            <% } else if (currentLang === 'en') { %>
+                                Last name:
+                            <% } %>
+                        </label>
+                        <input id="lastName" type="text" name="last_name" value="<%= values.last_name || '' %>" class="form-control roboto-regular" placeholder="<%= currentLang === 'pl' ? 'Podaj swoję nazwisko' : 'Enter your last name'%>">
+                        <div class="error text-danger">
+                            <% if (errors.last_name) { %>
+                                <%= currentLang === 'pl' ? errors.last_name : errors.last_name_ang %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label bangers-regular text-danger">Email:</label>
+                        <input id="email" type="email" name="email" value="<%= values.email || '' %>" class="form-control roboto-regular" placeholder="<%= currentLang === 'pl' ? 'Podaj email' : 'Enter email'%>">
+                        <div class="error text-danger">
+                            <% if (errors.email) { %>
+                                <%= currentLang === 'pl' ? errors.email : errors.email_ang %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label bangers-regular text-danger">
+                            <% if (currentLang === 'pl') { %>
+                                Numer telefonu:
+                            <% } else if (currentLang === 'en') { %>
+                                Phone number:
+                            <% } %>
+                        </label>
+                        <input id="phone" type="tel" name="phone" value="<%= values.phone || '' %>" class="form-control roboto-regular" placeholder="<%= currentLang === 'pl' ? 'Podaj numer telefonu' : 'Enter phone number'%>">
+                        <div class="error text-danger">
+                            <% if (errors.phone) { %>
+                                <%= currentLang === 'pl' ? errors.phone : errors.phone_ang %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label bangers-regular text-danger">
+                            <% if (currentLang === 'pl') { %>
+                                Treść wiadomości:
+                            <% } else if (currentLang === 'en') { %>
+                                Message content:
+                            <% } %>
+                        </label>
+                        <textarea id="message" name="message" class="form-control roboto-regular" rows="4" placeholder="<%= currentLang === 'pl' ? 'Podaj treść wiadomości' : 'Enter message content'%>" maxlength="1000"><%= values.message || '' %></textarea>
+                        <div class="error text-danger">
+                            <% if (errors.message) { %>
+                                <%= currentLang === 'pl' ? errors.message : errors.message_ang %>
+                            <% } %>
+                        </div>
+                        <div class="form-text text-end bangers-regular charCounter">0/1000</div>
+                    </div>
+                    <div class="text-end">
+                        <button type="reset" class="btn btn-danger bangers-regular w-25 buttonColor" id="resetButton">
+                            <% if (currentLang === 'pl') { %>
+                                Resetuj
+                            <% } else if (currentLang === 'en') { %>
+                                Reset
+                            <% } %>
+                        </button>
+                        <button type="submit" class="btn btn-danger bangers-regular w-25 buttonColor">
+                            <% if (currentLang === 'pl') { %>
+                                Wyślij
+                            <% } else if (currentLang === 'en') { %>
+                                Submit
+                            <% } %>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/js/contact.js"></script>
+    <% } %>
+</main>
+
+<%- include('../partials/footer', { currentLang: currentLang }) %>
