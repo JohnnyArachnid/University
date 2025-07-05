@@ -1,0 +1,7 @@
+1. Polimorfizm dynamiczny – Mechanizm, w którym wywołanie odpowiedniej wersji metody zależy od rzeczywistego typu obiektu w czasie wykonywania programu (runtime). Jest realizowany za pomocą funkcji wirtualnych i dziedziczenia w językach obiektowych, np. w C++ przy użyciu słowa kluczowego virtual.
+
+2. Polimorfizm statyczny – Mechanizm, w którym wybór odpowiedniej wersji funkcji następuje w czasie kompilacji (compile-time). Jest realizowany m.in. poprzez przeciążanie funkcji (function overloading) lub szablony (templates) w C++.
+
+3. Klasa abstrakcyjna – Klasa, która nie może być instancjonowana i zawiera co najmniej jedną czysto wirtualną metodę (= 0). Służy jako interfejs dla klas pochodnych.
+
+4. Funkcja wirtualna – Metoda w klasie bazowej oznaczona jako virtual, która może być przesłaniana (overridden) w klasach pochodnych. Pozwala na dynamiczne wiązanie metod.
